@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ijoon | Software Engineer</title>
+        <meta name="description" content="아이준(ijoon) 포트폴리오 - 20년 경력 소프트웨어 엔지니어" />
+        <link rel="stylesheet" href="static/css/common.css" />
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="container nav-inner">
+                <a href="#home" class="brand">ijoon<span>.</span></a>
+                <div class="menu">
+                    <a href="#about">About</a>
+                    <a href="#stack">Tech Stack</a>
+                    <a href="#services">Services</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero" id="home">
+            <div class="container hero-wrap">
+                <div class="hero-card">
+                    <div class="eyebrow">20 Years of Experience</div>
+                    <h1>
+                        Hi, I'm <span class="accent">ijoon</span><br />
+                        <small class="hero-subtitle">아이준</small>
+                    </h1>
+                    <p>
+                        Software Engineer focused on <strong>custom systems</strong>, <strong>automation</strong>, and
+                        <strong>web development</strong>. I build practical tools that help businesses work faster and
+                        smarter.
+                    </p>
+                    <div class="cta">
+                        <a class="btn btn-primary" href="#contact">Contact Me</a>
+                        <a class="btn btn-secondary" href="#projects">View Projects</a>
+                    </div>
+                </div>
+
+                <aside class="hero-card profile-box">
+                    <div class="profile-image">
+                        <img
+                            src="images/ijoon_width.png"
+                            alt="ijoon profile image"
+                            onerror="
+                                this.style.display = 'none';
+                                this.nextElementSibling.style.display = 'block';
+                            "
+                        />
+                        <div class="profile-placeholder is-hidden">
+                            images/ijoon_width.png 파일을 같은 경로에 두면 프로필 이미지가 표시됩니다.
+                        </div>
+                    </div>
+                    <ul class="badge-list">
+                        <li class="badge-item">Custom Business Systems</li>
+                        <li class="badge-item">업무 자동화 프로그램</li>
+                        <li class="badge-item">Web / 쇼핑몰 개발</li>
+                        <li class="badge-item">Database Optimization</li>
+                    </ul>
+                </aside>
+            </div>
+        </header>
+
+        <main>
+            <section id="about">
+                <div class="container grid-2">
+                    <div class="card">
+                        <div class="section-header">
+                            <div>
+                                <h2>What I Do</h2>
+                                <p>비즈니스 문제를 바로 해결하는 실용적인 개발을 합니다.</p>
+                            </div>
+                        </div>
+                        <ul class="simple-list">
+                            <li>Custom Business Systems</li>
+                            <li>업무 자동화 프로그램 개발</li>
+                            <li>Web / 쇼핑몰 시스템 개발</li>
+                            <li>Database Optimization</li>
+                            <li>Legacy System Improvement</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" id="stack">
+                        <div class="section-header">
+                            <div>
+                                <h2>Tech Stack</h2>
+                                <p>오랜 기간 다양한 환경에서 안정적으로 개발해온 경험이 있습니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="stack-group">
+                            <div class="stack-title">Languages</div>
+                            <ul class="stack-list">
+                                <li>Java</li>
+                                <li>C++</li>
+                                <li>C#</li>
+                                <li>PHP</li>
+                                <li>JSP</li>
+                                <li>SQL</li>
+                            </ul>
+                        </div>
+
+                        <div class="stack-group">
+                            <div class="stack-title">Database</div>
+                            <ul class="stack-list">
+                                <li>Oracle</li>
+                                <li>MySQL</li>
+                                <li>MSSQL</li>
+                                <li>Sybase</li>
+                            </ul>
+                        </div>
+
+                        <div class="stack-group">
+                            <div class="stack-title">Environment</div>
+                            <ul class="stack-list">
+                                <li>Linux</li>
+                                <li>Unix</li>
+                                <li>Windows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services">
+                <div class="container">
+                    <div class="card">
+                        <div class="section-header">
+                            <div>
+                                <h2>Services</h2>
+                                <p>의뢰 형태에 맞춰 유연하게 대응 가능합니다.</p>
+                            </div>
+                        </div>
+                        <ul class="service-list service-list-wide">
+                            <li>업무 자동화 프로그램</li>
+                            <li>맞춤형 프로그램 개발</li>
+                            <li>웹사이트 / 쇼핑몰 제작</li>
+                            <li>DB 설계 및 성능 최적화</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="container">
+                    <div class="section-header">
+                        <div>
+                            <h2>Projects</h2>
+                            <p>간단하게 보여드릴 수 있는 대표 프로젝트 예시입니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-list">
+                        <article class="project-card">
+                            <h3>Excel Auto Report</h3>
+                            <p>엑셀 데이터를 분석하고 자동으로 보고서를 생성하는 프로그램</p>
+                        </article>
+
+                        <article class="project-card">
+                            <h3>Website Data Crawler</h3>
+                            <p>웹사이트 데이터를 자동 수집하는 크롤링 프로그램</p>
+                        </article>
+
+                        <article class="project-card">
+                            <h3>Simple Inventory System</h3>
+                            <p>간단한 재고 관리를 위한 프로그램</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="container">
+                    <div class="card contact-card">
+                        <h2>Contact</h2>
+                        <p>프로젝트 문의나 협업이 필요하시면 편하게 연락 주세요.</p>
+                        <a class="btn btn-primary" href="mailto:chrisxp@kakao.com">chrisxp@kakao.com</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">Building useful tools for businesses and individuals.</div>
+        </footer>
+    </body>
+</html>
