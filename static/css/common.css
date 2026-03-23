@@ -231,7 +231,8 @@ h2 {
 .simple-list,
 .stack-list,
 .service-list,
-.project-list {
+.project-list,
+.portfolio-grid {
     display: grid;
     gap: 12px;
     padding: 0;
@@ -315,6 +316,52 @@ section {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.portfolio-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.portfolio-card {
+    overflow: hidden;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow);
+    transition: 0.2s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.35);
+}
+
+.portfolio-image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-copy {
+    padding: 18px 18px 20px;
+}
+
+.portfolio-copy h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.portfolio-copy p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
 .project-card {
     padding: 22px;
     border-radius: 20px;
@@ -360,7 +407,8 @@ footer {
 @media (max-width: 920px) {
     .hero-wrap,
     .grid-2,
-    .project-list {
+    .project-list,
+    .portfolio-grid {
         grid-template-columns: 1fr;
     }
 
