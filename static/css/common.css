@@ -386,6 +386,10 @@ section {
     font-size: 0.95rem;
 }
 
+.project-link {
+    display: block;
+}
+
 .contact-card {
     text-align: center;
     padding: 34px 24px;
