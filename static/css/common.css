@@ -19,6 +19,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 96px;
 }
 
 body {
@@ -54,6 +55,17 @@ img {
     backdrop-filter: blur(14px);
     background: rgba(2, 6, 23, 0.68);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.anchor-target {
+    display: block;
+    position: relative;
+    top: -96px;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .nav-inner {
@@ -216,17 +228,6 @@ h2 {
     object-fit: cover;
 }
 
-.profile-placeholder {
-    color: #94a3b8;
-    text-align: center;
-    padding: 28px;
-    font-size: 0.95rem;
-}
-
-.is-hidden {
-    display: none;
-}
-
 .badge-list,
 .simple-list,
 .stack-list,
@@ -305,7 +306,7 @@ section {
 }
 
 .service-list-wide {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .service-list li {
@@ -317,11 +318,13 @@ section {
 }
 
 .portfolio-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
 }
 
 .portfolio-card {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     border-radius: 22px;
     background: rgba(255, 255, 255, 0.05);
@@ -337,18 +340,27 @@ section {
 
 .portfolio-image {
     aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.04);
 }
 
 .portfolio-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: top center;
+    display: block;
 }
 
 .portfolio-copy {
     padding: 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .portfolio-copy h3 {
@@ -360,6 +372,24 @@ section {
     margin: 0;
     color: var(--muted);
     font-size: 0.95rem;
+}
+
+.portfolio-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: var(--point-soft);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    color: #bae6fd;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.portfolio-more:hover {
+    background: rgba(56, 189, 248, 0.24);
 }
 
 .project-card {
@@ -386,65 +416,8 @@ section {
     font-size: 0.95rem;
 }
 
-.project-link {
-    display: block;
-}
-
-.feature-site-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-    gap: 22px;
-    align-items: center;
-    overflow: hidden;
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: var(--shadow);
-    transition: 0.2s ease;
-}
-
-.feature-site-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(56, 189, 248, 0.35);
-}
-
-.feature-site-image {
-    min-height: 280px;
-    background: rgba(255, 255, 255, 0.04);
-}
-
-.feature-site-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-}
-
 .feature-site-copy {
-    padding: 28px 28px 28px 6px;
-}
-
-.feature-site-copy h3 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-}
-
-.feature-site-copy p {
-    margin: 0 0 18px;
-    color: var(--muted);
-    font-size: 0.98rem;
-}
-
-.feature-site-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 11px 16px;
-    border-radius: 999px;
-    background: var(--point-soft);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    color: #bae6fd;
-    font-weight: 700;
+    margin-top: 10px;
 }
 
 .contact-card {
@@ -473,12 +446,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .feature-site-card {
-        grid-template-columns: 1fr;
-    }
-
-    .feature-site-copy {
-        padding: 0 22px 22px;
+    .service-list-wide {
+        grid-template-columns: 1fr 1fr;
     }
 
     .badge-list {
@@ -509,6 +478,10 @@ footer {
     }
 
     .badge-list {
+        grid-template-columns: 1fr;
+    }
+
+    .service-list-wide {
         grid-template-columns: 1fr;
     }
 

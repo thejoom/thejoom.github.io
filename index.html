@@ -13,7 +13,7 @@
     <body>
         <nav class="nav">
             <div class="container nav-inner">
-                <a href="#home" class="brand">ijoon<span>.</span></a>
+                <a href="#home" class="brand">theJoom</a>
                 <div class="menu">
                     <a href="#about">About</a>
                     <a href="#stack">Tech Stack</a>
@@ -71,9 +71,6 @@
                                 this.nextElementSibling.style.display = 'block';
                             "
                         />
-                        <div class="profile-placeholder is-hidden">
-                            static/images/ijoon_width.png 파일을 같은 경로에 두면 프로필 이미지가 표시됩니다.
-                        </div>
                     </div>
                     <ul class="badge-list">
                         <li class="badge-item">Custom Business Systems</li>
@@ -86,7 +83,8 @@
         </header>
 
         <main>
-            <section id="about">
+            <section>
+                <span id="about" class="anchor-target" aria-hidden="true"></span>
                 <div class="container grid-2">
                     <div class="card">
                         <div class="section-header">
@@ -104,7 +102,8 @@
                         </ul>
                     </div>
 
-                    <div class="card" id="stack">
+                    <div class="card">
+                        <span id="stack" class="anchor-target" aria-hidden="true"></span>
                         <div class="section-header">
                             <div>
                                 <h2>Tech Stack</h2>
@@ -146,7 +145,8 @@
                 </div>
             </section>
 
-            <section id="services">
+            <section>
+                <span id="services" class="anchor-target" aria-hidden="true"></span>
                 <div class="container">
                     <div class="card">
                         <div class="section-header">
@@ -161,12 +161,14 @@
                             <li>웹사이트 / 쇼핑몰 제작</li>
                             <li>광고용 랜딩페이지 제작</li>
                             <li>DB 설계 및 성능 최적화</li>
+                            <li>유지보수 및 기능 개선 지원</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <section id="portfolio">
+            <section>
+                <span id="portfolio" class="anchor-target" aria-hidden="true"></span>
                 <div class="container">
                     <div class="section-header">
                         <div>
@@ -178,38 +180,57 @@
                     <div class="portfolio-grid">
                         <article class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="static/images/portfolio/00.portfolio.png" alt="포트폴리오 작업 화면 1" />
+                                <img src="static/images/portfolio/00.portfolio.png" alt="웹기반 관리자 시스템 화면" />
                             </div>
                             <div class="portfolio-copy">
-                                <h3>Business Dashboard</h3>
-                                <p>업무 현황과 주요 데이터를 한눈에 볼 수 있도록 구성한 관리 화면입니다.</p>
+                                <h3>웹기반 관리자 시스템</h3>
+                                <p>Web-based Admin System</p>
+                                <p>사용자, 권한, 데이터 등을 통합 관리할 수 있는 기본 관리자 시스템 화면입니다.</p>
+                                <a class="portfolio-more" href="portfolio/00.portfolio.html">상세 보기</a>
                             </div>
                         </article>
 
                         <article class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="static/images/portfolio/01.portfolio.png" alt="포트폴리오 작업 화면 2" />
+                                <img src="static/images/portfolio/01.portfolio.png" alt="재고 관리 시스템 화면" />
                             </div>
                             <div class="portfolio-copy">
-                                <h3>Operations Management</h3>
-                                <p>실무자가 빠르게 처리할 수 있도록 흐름 중심으로 설계한 운영 페이지입니다.</p>
+                                <h3>재고 관리 시스템</h3>
+                                <p>Inventory Management System</p>
+                                <p>상품 등록, 재고 수량, 상태 관리까지 가능한 재고 관리 중심의 운영 화면입니다.</p>
+                                <a class="portfolio-more" href="portfolio/01.portfolio.html">상세 보기</a>
                             </div>
                         </article>
 
                         <article class="portfolio-card">
                             <div class="portfolio-image">
-                                <img src="static/images/portfolio/02.portfolio.png" alt="포트폴리오 작업 화면 3" />
+                                <img src="static/images/portfolio/02.portfolio.png" alt="매출 데이터 분석 화면" />
                             </div>
                             <div class="portfolio-copy">
-                                <h3>Custom Admin System</h3>
-                                <p>맞춤형 기능과 데이터를 연결해 관리 효율을 높인 관리자 시스템 예시입니다.</p>
+                                <h3>매출 데이터 분석 (엑셀 자동화)</h3>
+                                <p>Sales Analytics Dashboard</p>
+                                <p>엑셀 기반으로 매출 데이터를 정리하고, 차트와 요약으로 한눈에 확인할 수 있는 분석 화면입니다.</p>
+                                <a class="portfolio-more" href="portfolio/02.portfolio.html">상세 보기</a>
+                            </div>
+                        </article>
+
+                        <article class="portfolio-card">
+                            <div class="portfolio-image">
+                                <img src="static/images/portfolio/03.portfolio.png" alt="예약 접수 관리 시스템 화면" />
+                            </div>
+                            <div class="portfolio-copy">
+                                <h3>예약 / 접수 관리 시스템</h3>
+                                <p>Reservation Management System</p>
+                                <p>예약 및 접수 내역을 관리하고 상태 처리, 상세 확인이 가능한 운영 관리 화면입니다.</p>
+                                <a class="portfolio-more" href="portfolio/03.portfolio.html">상세 보기</a>
                             </div>
                         </article>
                     </div>
                 </div>
             </section>
 
-            <section id="projects">
+            <section>
+                <span id="projects" class="anchor-target" aria-hidden="true"></span>
                 <div class="container">
                     <div class="section-header">
                         <div>
@@ -237,7 +258,8 @@
                 </div>
             </section>
 
-            <section id="featured-link">
+            <section>
+                <span id="featured-link" class="anchor-target" aria-hidden="true"></span>
                 <div class="container">
                     <div class="card">
                         <div class="section-header">
@@ -274,7 +296,8 @@
                 </div>
             </section>
 
-            <section id="contact">
+            <section>
+                <span id="contact" class="anchor-target" aria-hidden="true"></span>
                 <div class="container">
                     <div class="card contact-card">
                         <h2>지금 바로 상담 받아보세요</h2>
