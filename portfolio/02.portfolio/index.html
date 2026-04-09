@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>02.portfolio</title>
+        <link rel="stylesheet" href="../../static/css/common.css" />
+        <link rel="stylesheet" href="../../static/css/portfolio-app.css" />
+    </head>
+    <body class="portfolio-app-page">
+        <main class="portfolio-app-shell">
+            <section class="sheet-layout">
+                <div class="sheet-topbar"></div>
+                <div class="sheet-content">
+                    <article class="sheet-panel">
+                        <div class="sheet-heading">
+                            <h1 class="sheet-title">1분기 매출 소사</h1>
+                            <button class="sheet-button">업데이트</button>
+                        </div>
+
+                        <div class="sheet-controls">
+                            <select class="sheet-select"><option>2024년 1분기</option></select>
+                            <input class="sheet-input" type="text" value="만 2024.01.01 - 2024.03.31" />
+                            <button class="sheet-button">열기</button>
+                        </div>
+
+                        <table class="sheet-table">
+                            <thead>
+                                <tr>
+                                    <th>월도</th>
+                                    <th>경수량</th>
+                                    <th>기본코드명</th>
+                                    <th>매대금액</th>
+                                    <th>연매출</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>10</td><td>샘플성공10</td><td>서표</td><td>359</td><td>900,000</td></tr>
+                                <tr><td>8</td><td>샘플성공09</td><td>외품</td><td>650</td><td>550,000</td></tr>
+                                <tr><td>7</td><td>샘플성공09</td><td>형사과통</td><td>250</td><td>400,000</td></tr>
+                                <tr><td>6</td><td>샘플성공07</td><td>형사과통</td><td>1100</td><td>700,000</td></tr>
+                                <tr><td>5</td><td>샘플성공06</td><td>외품</td><td>12</td><td>390,000</td></tr>
+                                <tr><td>4</td><td>샘플성공05</td><td>저품</td><td>5</td><td>39,000</td></tr>
+                                <tr><td>3</td><td>샘플성공04</td><td>정상과통</td><td>5</td><td>830,000</td></tr>
+                                <tr><td>2</td><td>샘플성공06</td><td>서품</td><td>500</td><td>550,000</td></tr>
+                                <tr><td>1</td><td>샘플성공00</td><td>화물</td><td>25</td><td>200,000</td></tr>
+                                <tr><td>2</td><td>샘플성공01</td><td>여분</td><td>21</td><td>380,000</td></tr>
+                            </tbody>
+                        </table>
+                    </article>
+
+                    <article class="sheet-panel chart-card">
+                        <div class="sheet-heading">
+                            <h1 class="sheet-title">1분기 매출 소사</h1>
+                            <div class="sheet-button">요약</div>
+                        </div>
+
+                        <div class="chart-summary">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>분류</th>
+                                        <th>개수</th>
+                                        <th>적용수량</th>
+                                        <th>비용합계</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>식품</td><td>395</td><td>930</td><td>9,330,000</td></tr>
+                                    <tr><td>의류</td><td>295</td><td>630</td><td>9,920,000</td></tr>
+                                    <tr><td>강사체물</td><td>279</td><td>1100</td><td>7,930,000</td></tr>
+                                    <tr class="total"><td>총 에트리</td><td>355</td><td>26,000</td><td>16,930,000</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pie-card">
+                            <div class="pie" aria-hidden="true"></div>
+                            <div class="legend">
+                                <div class="legend-item"><span class="legend-swatch blue"></span> 식품 355 (2회)</div>
+                                <div class="legend-item"><span class="legend-swatch yellow"></span> 의류 590 (5회)</div>
+                                <div class="legend-item"><span class="legend-swatch green"></span> 정수혜 990 (7회)</div>
+                                <div class="legend-item">총 입금액 16,080,000</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
