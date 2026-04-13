@@ -416,8 +416,136 @@ section {
     font-size: 0.95rem;
 }
 
+.feature-card-stack {
+    display: grid;
+    gap: 18px;
+}
+
+.feature-card-stack .project-link {
+    display: block;
+}
+
+.feature-site-card {
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow);
+    transition: 0.2s ease;
+}
+
+.feature-site-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(56, 189, 248, 0.35);
+}
+
+.feature-landing-card,
+.cms-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-landing-card .section-header,
+.cms-card .section-header {
+    padding: 24px 24px 0;
+    margin-bottom: 14px;
+}
+
+.feature-landing-card .project-link {
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-site-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 16px;
+}
+
+.feature-site-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.feature-site-image-large {
+    padding: 0 24px;
+}
+
+.feature-site-image-large img {
+    max-width: 100%;
+}
+
 .feature-site-copy {
-    margin-top: 10px;
+    padding: 16px 24px 24px;
+}
+
+.feature-site-copy h3 {
+    font-size: 1.02rem;
+    margin-bottom: 8px;
+}
+
+.feature-site-chip {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    color: #bae6fd;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.feature-site-copy p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.feature-site-cta {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 12px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--point-soft);
+    border: 1px solid rgba(56, 189, 248, 0.28);
+    color: #bae6fd;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.cms-card {
+    margin-top: 18px;
+    padding: 0;
+}
+
+.cms-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 0 24px 24px;
+}
+
+.cms-image-panel {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.cms-image-panel .feature-site-image {
+    min-height: 0;
 }
 
 .contact-card {
@@ -442,7 +570,8 @@ footer {
     .hero-wrap,
     .grid-2,
     .project-list,
-    .portfolio-grid {
+    .portfolio-grid,
+    .cms-image-grid {
         grid-template-columns: 1fr;
     }
 
