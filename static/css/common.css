@@ -458,6 +458,10 @@ section {
     flex-direction: column;
 }
 
+.feature-landing-card {
+    padding-bottom: 24px;
+}
+
 .feature-landing-card .section-header,
 .cms-card .section-header {
     padding: 24px 24px 0;
