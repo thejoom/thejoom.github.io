@@ -1,0 +1,118 @@
+---
+import { BLOG_BASE, getCanonicalUrl } from '../lib/blog';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+}
+
+const { title, description, canonicalPath = `${BLOG_BASE}/` } = Astro.props;
+const canonical = getCanonicalUrl(canonicalPath);
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="thejoom blog" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="alternate" type="application/rss+xml" title="thejoom blog RSS" href={getCanonicalUrl(`${BLOG_BASE}/rss.xml`)} />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #1f2933;
+        background: #ffffff;
+      }
+
+      body {
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      a {
+        color: #0b5cad;
+      }
+
+      .site-shell {
+        width: min(100% - 32px, 880px);
+        margin: 0 auto;
+        padding: 32px 0 56px;
+      }
+
+      .site-header,
+      .site-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .site-header {
+        margin-bottom: 40px;
+      }
+
+      .site-footer {
+        margin-top: 56px;
+        padding-top: 24px;
+        border-top: 1px solid #d9e2ec;
+        font-size: 0.9rem;
+      }
+
+      .post-list {
+        display: grid;
+        gap: 24px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .post-item {
+        border-bottom: 1px solid #d9e2ec;
+        padding-bottom: 24px;
+      }
+
+      .meta {
+        color: #52606d;
+        font-size: 0.95rem;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #d9e2ec;
+        padding: 8px 10px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a href={`${BLOG_BASE}/`}>thejoom blog</a>
+        <a href="/">Home</a>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <span>thejoom blog</span>
+        <a href={`${BLOG_BASE}/rss.xml`}>RSS</a>
+      </footer>
+    </div>
+  </body>
+</html>

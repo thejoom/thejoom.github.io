@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BLOG_BASE, formatDate, getPostUrl, getTagUrl } from '../../lib/blog';
+import { getPublishedPosts } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts.filter((post) => post.data.tags.includes(tag)),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props as { tag: string; posts: Awaited<ReturnType<typeof getPublishedPosts>> };
+---
+
+<BaseLayout title={`#${tag} | thejoom blog`} description={`Posts tagged with ${tag}.`} canonicalPath={getTagUrl(tag)}>
+  <h1>#{tag}</h1>
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li class="post-item">
+        <p class="meta">{formatDate(post.data.pubDate)}</p>
+        <h2><a href={getPostUrl(post.slug)}>{post.data.title}</a></h2>
+        <p>{post.data.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>

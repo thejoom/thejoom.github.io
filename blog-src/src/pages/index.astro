@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BLOG_BASE, categoryLabels, formatDate, getPostUrl, getCategoryUrl } from '../lib/blog';
+import { getPublishedPosts } from '../lib/blog';
+
+const posts = await getPublishedPosts();
+---
+
+<BaseLayout title="thejoom blog" description="작업 기록과 에이전트 운영 노트를 모으는 블로그입니다." canonicalPath={`${BLOG_BASE}/`}>
+  <h1>thejoom blog</h1>
+  <ul class="post-list">
+    {posts.map((post) => (
+      <li class="post-item">
+        <p class="meta">
+          {formatDate(post.data.pubDate)}
+          · <a href={getCategoryUrl(post.data.category)}>{categoryLabels[post.data.category]}</a>
+        </p>
+        <h2><a href={getPostUrl(post.slug)}>{post.data.title}</a></h2>
+        <p>{post.data.description}</p>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
