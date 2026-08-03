@@ -19,7 +19,10 @@ const { tag, posts } = Astro.props as { tag: string; posts: Awaited<ReturnType<t
 ---
 
 <BaseLayout title={`#${tag} | thejoom blog`} description={`Posts tagged with ${tag}.`} canonicalPath={getTagUrl(tag)}>
-  <h1>#{tag}</h1>
+  <header class="page-header">
+    <p class="eyebrow">Tag</p>
+    <h1>#{tag}</h1>
+  </header>
   <ul class="post-list">
     {posts.map((post) => (
       <li class="post-item">

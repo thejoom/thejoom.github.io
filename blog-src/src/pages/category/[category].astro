@@ -20,7 +20,10 @@ const title = `${categoryLabels[category]} | thejoom blog`;
 ---
 
 <BaseLayout title={title} description={`${categoryLabels[category]} category posts.`} canonicalPath={getCategoryUrl(category)}>
-  <h1>{categoryLabels[category]}</h1>
+  <header class="page-header">
+    <p class="eyebrow">Category</p>
+    <h1>{categoryLabels[category]}</h1>
+  </header>
   <ul class="post-list">
     {posts.map((post) => (
       <li class="post-item">

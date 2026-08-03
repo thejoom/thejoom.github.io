@@ -7,23 +7,25 @@ const canonicalPath = `${BLOG_BASE}/${post.slug}/`;
 ---
 
 <BaseLayout title={`${post.data.title} | thejoom blog`} description={post.data.description} canonicalPath={canonicalPath}>
-  <article>
-    <header>
+  <article class="post">
+    <header class="post-header">
       <p class="meta">
-        <a href={`${BLOG_BASE}/category/${post.data.category}/`}>{categoryLabels[post.data.category]}</a>
+        <a class="category-link" href={`${BLOG_BASE}/category/${post.data.category}/`}>{categoryLabels[post.data.category]}</a>
         · Published {formatDate(post.data.pubDate)}
         {post.data.updatedDate && <> · Updated {formatDate(post.data.updatedDate)}</>}
       </p>
       <h1>{post.data.title}</h1>
-      <p>{post.data.description}</p>
+      <p class="lede">{post.data.description}</p>
       {post.data.tags.length > 0 && (
-        <p class="meta">
+        <p class="meta post-tags">
           {post.data.tags.map((tag) => (
-            <a href={`${BLOG_BASE}/tags/${encodeURIComponent(tag)}/`}>#{tag} </a>
+            <a class="tag-link" href={`${BLOG_BASE}/tags/${encodeURIComponent(tag)}/`}>#{tag} </a>
           ))}
         </p>
       )}
     </header>
-    <slot />
+    <div class="post-content">
+      <slot />
+    </div>
   </article>
 </BaseLayout>

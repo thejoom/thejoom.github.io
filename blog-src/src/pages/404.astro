@@ -4,7 +4,10 @@ import { BLOG_BASE } from '../lib/blog';
 ---
 
 <BaseLayout title="Page not found | thejoom blog" description="The requested page could not be found." canonicalPath={`${BLOG_BASE}/404/`}>
-  <h1>Page not found</h1>
-  <p>The requested page could not be found.</p>
-  <p><a href={`${BLOG_BASE}/`}>Back to blog</a></p>
+  <section class="not-found">
+    <p class="eyebrow">404</p>
+    <h1>Page not found</h1>
+    <p class="lede">The requested page could not be found.</p>
+    <p><a class="footer-cta" href={`${BLOG_BASE}/`}>Back to blog</a></p>
+  </section>
 </BaseLayout>

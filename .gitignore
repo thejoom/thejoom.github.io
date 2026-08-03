@@ -2,3 +2,4 @@ blog-src/node_modules/
 blog-src/dist/
 blog-src/.astro/
 _site/
+tmp/
