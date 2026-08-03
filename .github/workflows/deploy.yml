@@ -48,6 +48,10 @@ jobs:
           cp robots.txt _site/
           cp sitemap-index.xml _site/
           cp sitemap-root.xml _site/
+          # Search engine ownership verification files (Google / Naver)
+          shopt -s nullglob
+          for f in google*.html naver*.html; do cp "$f" _site/; done
+          shopt -u nullglob
           cp -R portfolio _site/
           cp -R static _site/
           cp -R blog-src/dist/. _site/blog/
