@@ -823,7 +823,7 @@ main:focus {
 }
 
 /* --------------------------------------------------------------------------
-   8. Process — one sticky ivy for the whole section
+   8. Process — five steps, each carrying its own ivy marker
    -------------------------------------------------------------------------- */
 
 .process {
@@ -842,67 +842,27 @@ main:focus {
     container-name: process;
 }
 
-/* Narrow: the stage itself sticks, against the block box that holds both it and
-   the step list. It is opaque because the steps scroll underneath it. */
-.process__stage {
-    position: sticky;
-    inset-block-start: var(--header-h);
-    z-index: 1;
-    padding-block: var(--s-1) var(--s-2);
-    margin-block-end: var(--s-3);
-    background: var(--sand-soft);
-    border-block-end: 1px solid var(--mist);
-}
-
-.process__ivy-slot {
-    /* Pinned under the header here, so the ivy is deliberately smaller than the
-       in-flow ivies elsewhere on the page: at the full size the pinned band
-       would eat roughly a third of a phone viewport for the whole section. */
-    --ivy-w: clamp(5.5rem, 3.5rem + 6vw, 8.5rem);
-    display: grid;
-    justify-items: center;
-    align-items: end;
-}
-
-/* All five share one grid cell and stand on a common ground line, so the swap
-   reads as one character changing prop rather than as five images moving. */
-.process__ivy {
-    grid-area: 1 / 1;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-/* Without scripting this is the only ivy that ever shows. */
-.process__ivy--initial {
-    opacity: 1;
-}
-
-/* With scripting, visibility follows the observed step instead. */
-[data-ivy-js="on"] .process__ivy--initial {
-    opacity: 0;
-}
-
-/* The incoming ivy waits for the outgoing one to clear rather than dissolving
-   through it: two different characters overlapping read as a double exposure,
-   and it would put two ivies on screen for the length of the fade. */
-[data-ivy-js="on"] .process__ivy.is-current {
-    opacity: 1;
-    transition: opacity 0.25s ease 0.2s;
-}
-
 .steps {
+    /* Section-local ivy scale. Here the character is a list marker, not the
+       in-flow figure the rest of the page uses, so this overrides --ivy-w
+       rather than adding a second sizing rule to .ivy. Width is what unifies
+       them: all five files draw the character at the same pixel scale, so one
+       common inline-size makes the heads read the same even though the natural
+       ratios run from 0.61 to 0.94. */
+    --ivy-w: clamp(3rem, 2.25rem + 2cqi, 3.75rem);
     min-inline-size: 0;
 }
 
 .step {
     display: grid;
-    gap: var(--s-1);
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: var(--s-2);
+    row-gap: var(--s-1);
     align-content: center;
-    /* Enough scroll distance per step for the sticky swap to register, without
-       the viewport-sized steps this section used to carry. Floor, never a cap.
-       Kept a little above the tallest step's own height: the swap still gets a
-       run of its own, but four lines of text no longer sit in a box twice their
-       size. */
+    /* An even row rhythm for the list, without the viewport-sized steps this
+       section used to carry. Floor, never a cap. Kept a little above the
+       tallest step's own height, so four lines of text no longer sit in a box
+       twice their size. */
     min-block-size: clamp(11rem, 9rem + 4vw, 13rem);
     padding-block: var(--s-3);
     border-block-end: 1px solid var(--mist);
@@ -935,38 +895,31 @@ main:focus {
     max-inline-size: var(--measure);
 }
 
+/* Narrow: the marker holds its own column beside the whole step, so the title
+   keeps the width it had before the image arrived and never wraps around it.
+   Centred rather than sat on the title baseline — the five natural ratios span
+   1.07 to 1.64, so bottom-aligning them would leave the tallest step visibly
+   deeper than the other four and break the even row rhythm. */
+.step__ivy {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: center;
+}
+
 @container process (min-width: 52rem) {
-    .process__grid {
-        display: grid;
-        /* Stage column tracks the container, with a rem term so browser zoom
-           still moves it. The ivy is capped below the track, never above it. */
-        grid-template-columns: minmax(0, clamp(13rem, 9rem + 12cqi, 18rem)) minmax(0, 1fr);
-        column-gap: var(--s-6);
-    }
-
-    /* The stage stops sticking and becomes a plain stretched grid item, so it is
-       exactly as tall as the step list; the slot sticks inside it. Sticking the
-       grid item itself lets the ivy outrun its own section in Chrome. */
-    .process__stage {
-        position: static;
-        padding-block: 0;
-        margin-block-end: 0;
-        background: none;
-        border-block-end: 0;
-    }
-
-    .process__ivy-slot {
-        --ivy-w: min(100%, 17rem);
-        position: sticky;
-        inset-block-start: calc(var(--header-h) + var(--s-5));
-    }
-
     .step {
-        /* Track holds the two-digit label at its --fs-numeral ceiling with room
-           to spare, so a fallback face cannot push it into the title. */
-        grid-template-columns: minmax(0, 2.5rem) minmax(0, 1fr);
+        /* Marker, then a track that holds the two-digit label at its
+           --fs-numeral ceiling with room to spare, so a fallback face cannot
+           push it into the title. */
+        grid-template-columns: auto minmax(0, 2.5rem) minmax(0, 1fr);
         column-gap: var(--s-3);
         align-items: baseline;
+    }
+
+    /* One row now: the label and the title share a baseline, the marker keeps
+       its own centring against them. */
+    .step__ivy {
+        grid-row: 1;
     }
 }
 
@@ -1267,11 +1220,5 @@ main:focus {
     .btn:hover,
     .btn:active {
         transform: none;
-    }
-
-    /* The duration override above already kills the fade; the hand-off delay
-       has to go too, or the ivy swap leaves a visible gap. */
-    .process__ivy {
-        transition-delay: 0s !important;
     }
 }
