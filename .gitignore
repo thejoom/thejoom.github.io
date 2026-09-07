@@ -3,3 +3,4 @@ blog-src/dist/
 blog-src/.astro/
 _site/
 tmp/
+/blog/

@@ -597,7 +597,12 @@
                     <div class="scopes">
                         <section class="scope" aria-labelledby="scope-in">
                             <header class="track__head">
-                                <p class="track__badge track__badge--ink">포함</p>
+                                <p class="track__badge track__badge--ink">
+                                    <svg class="track__badge-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="m5 12 4 4L19 6" />
+                                    </svg>
+                                    포함
+                                </p>
                                 <h3 id="scope-in">일상 업무는 무엇이든</h3>
                                 <p class="track__note">월 5만원 안에서 처리합니다</p>
                             </header>
@@ -619,12 +624,21 @@
                                     <h4>수정 요청</h4>
                                     <p>문구·이미지·공지 교체는 말씀만 하시면 됩니다</p>
                                 </li>
+                                <li class="offer">
+                                    <h4>사이트 유지보수</h4>
+                                    <p>문구·이미지·공지 업데이트를 요청만 하면</p>
+                                </li>
                             </ul>
                         </section>
 
                         <section class="scope" aria-labelledby="scope-extra">
                             <header class="track__head">
-                                <p class="track__badge">별도</p>
+                                <p class="track__badge">
+                                    <svg class="track__badge-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 5v14M5 12h14" />
+                                    </svg>
+                                    별도
+                                </p>
                                 <h3 id="scope-extra">새로 만드는 일은 따로</h3>
                                 <p class="track__note">비용은 범위를 보고 먼저 알려 드립니다</p>
                             </header>
@@ -641,6 +655,10 @@
                                 <li class="offer">
                                     <h4>대규모 개편·이관</h4>
                                     <p>범위가 큰 작업은 건별로 따로 잡습니다</p>
+                                </li>
+                                <li class="offer">
+                                    <h4>시스템 연동</h4>
+                                    <p>사이트 ↔ 시트 ↔ 쇼핑몰 ↔ 사내 시스템을 API로 잇기</p>
                                 </li>
                             </ul>
                         </section>
@@ -683,7 +701,7 @@
             <div class="wrap site-footer__grid">
                 <div>
                     <a class="site-footer__brand" href="#top">
-                        <img src="static/images/logo/thejoom-logo.svg" alt="더줌" width="360" height="92" />
+                        <img src="static/images/logo/thejoom-logo-ink.svg" alt="더줌" width="360" height="92" />
                     </a>
                     <p class="site-footer__note">
                         사업자등록을 마친 사업체 더줌(thejoom)으로 운영하며, 세금계산서 발행이 가능합니다.
