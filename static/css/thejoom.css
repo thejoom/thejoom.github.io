@@ -64,7 +64,10 @@
     --fs-h2: clamp(1.5625rem, 1.2rem + 1.8vw, 2.441rem);
     --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5625rem);
     --fs-lead: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
-    --fs-numeral: clamp(2.441rem, 1.8rem + 3.2vw, 4.768rem);
+    /* Step index label. One rung under --fs-h3 at both ends of its range, so it
+       reads as a caption beside the title instead of a display figure competing
+       with it. */
+    --fs-numeral: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
 
     /* Spacing — 8px grid */
     --s-1: 0.5rem;
@@ -893,12 +896,15 @@ main:focus {
 
 .step {
     display: grid;
-    gap: var(--s-2);
+    gap: var(--s-1);
     align-content: center;
     /* Enough scroll distance per step for the sticky swap to register, without
-       the viewport-sized steps this section used to carry. Floor, never a cap. */
-    min-block-size: clamp(18rem, 14rem + 12vw, 26rem);
-    padding-block: var(--s-4);
+       the viewport-sized steps this section used to carry. Floor, never a cap.
+       Kept a little above the tallest step's own height: the swap still gets a
+       run of its own, but four lines of text no longer sit in a box twice their
+       size. */
+    min-block-size: clamp(11rem, 9rem + 4vw, 13rem);
+    padding-block: var(--s-3);
     border-block-end: 1px solid var(--mist);
 }
 
@@ -906,12 +912,14 @@ main:focus {
     border-block-end: 0;
 }
 
+/* An index label, not a display numeral: same tracked-and-muted treatment as
+   .eyebrow, so the step list carries one title rank rather than two. */
 .step__num {
-    color: var(--mist-deep);
+    color: var(--ink-muted);
     font-size: var(--fs-numeral);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.04em;
+    font-weight: 700;
+    line-height: 1.28;
+    letter-spacing: 0.08em;
 }
 
 .step__body {
@@ -954,10 +962,10 @@ main:focus {
     }
 
     .step {
-        /* Track holds the numeral at its --fs-numeral ceiling with room to
-           spare, so a fallback face cannot push it into the title. */
-        grid-template-columns: minmax(0, 7rem) minmax(0, 1fr);
-        column-gap: var(--s-4);
+        /* Track holds the two-digit label at its --fs-numeral ceiling with room
+           to spare, so a fallback face cannot push it into the title. */
+        grid-template-columns: minmax(0, 2.5rem) minmax(0, 1fr);
+        column-gap: var(--s-3);
         align-items: baseline;
     }
 }
