@@ -37,7 +37,6 @@
     --sand: #f1e4cd; /* ivy warmth, secondary surface */
     --sand-soft: #faf3e7;
     --mist: #c7d0dc; /* secondary surface + rules */
-    --mist-deep: #7e8b9d; /* step watermark numeral, 3.5:1 on white / 3.1:1 on sand */
     --ink-on-sand: #4a4335; /* warm ink, 7.8:1 on --sand */
     --line: #e3e8ee;
     --line-dark: #38414e;
@@ -63,7 +62,7 @@
     --fs-h1: clamp(1.953rem, 1.4rem + 2.8vw, 3.052rem);
     --fs-h2: clamp(1.5625rem, 1.2rem + 1.8vw, 2.441rem);
     --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5625rem);
-    --fs-lead: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+    --fs-lead: clamp(var(--fs-base), 0.9375rem + 0.25vw, var(--fs-md));
     /* Step index label. Locked to --fs-h3 so the figure and the step title sit
        on the same size rank at every width; the label is set apart from the
        title by weight alone (500 against 700), never by a second size step. */
@@ -158,11 +157,16 @@ h3 {
     letter-spacing: -0.02em;
 }
 
-/* One step below h3 on the same 1.25 ladder — used for the service categories,
-   which are named inside a track rather than titling one. */
+/* Service headings use the base rank on narrow screens; weight preserves hierarchy. */
 h4 {
-    font-size: var(--fs-md);
+    font-size: var(--fs-base);
     letter-spacing: -0.02em;
+}
+
+@media (min-width: 48rem) {
+    h4 {
+        font-size: var(--fs-md);
+    }
 }
 
 p {
@@ -798,10 +802,16 @@ main:focus {
     max-inline-size: var(--measure);
 }
 
-/* Colour is the entire emphasis on the two we have actually shipped: same
-   weight, same size, no extra wording — one signal, not three. */
+/* Experience text conveys the meaning of the title colour. */
 .duty--proven h4 {
     color: var(--blush); /* 7.2:1 on --ink-deep */
+}
+
+.duty__experience {
+    display: block;
+    margin-block-start: var(--s-1);
+    color: var(--on-dark-muted);
+    font-size: var(--fs-xs);
 }
 
 .build__cta {
@@ -1006,11 +1016,9 @@ main:focus {
    -------------------------------------------------------------------------- */
 
 .work {
-    /* The process ivy is sticky, so it can be on screen right up to the bottom
-       of its own section; this band is the whole gap between it and the deskbell
-       ivy below. Nine shots now clear this floor several times over at every
-       width, but it is kept as the guard for the case where the images fail to
-       load and the section collapses back to text. vh fallback, then svh. */
+    /* The process uses five inline characters. Preserve this band as
+       separation before the next section, including when shots fail to load.
+       Keep the existing minimum until viewport review. */
     display: grid;
     align-content: center;
     min-block-size: max(84vh, 40rem);
@@ -1064,7 +1072,7 @@ main:focus {
     color: var(--on-dark-muted);
     font-size: var(--fs-xs);
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
 }
 
 .work__cards {
@@ -1101,6 +1109,11 @@ main:focus {
 /* Weight carries the label, colour carries the line: one emphasis each. */
 .work-card__type {
     font-weight: 700;
+}
+
+.work-card__origin {
+    color: var(--on-dark-muted);
+    font-size: var(--fs-xs);
 }
 
 .work-card__line {
