@@ -1,0 +1,1160 @@
+/* ==========================================================================
+   thejoom.css — styles for the home page (index.html) only.
+   static/css/common.css is shared by portfolio/*.html and is NOT touched here.
+   Comments are intentionally written in English (Windows mojibake history).
+   ========================================================================== */
+
+@font-face {
+    font-family: "Pretendard";
+    src: url("/static/fonts/PretendardVariable.woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+
+:root {
+    color-scheme: light;
+
+    /* Brand — logo and the primary call to action only. Never a decorative fill. */
+    --brand-from: #7c3aed;
+    --brand-to: #db2777;
+    --brand-gradient: linear-gradient(102deg, var(--brand-from) 0%, var(--brand-to) 100%);
+
+    /* Ink */
+    --ink: #333b4a; /* 11.3:1 on white */
+    --ink-deep: #1e2631; /* hero / work / footer band */
+    --ink-muted: #5c6779; /* 5.7:1 on white */
+    --on-dark: #ffffff; /* 15.3:1 on --ink-deep */
+    --on-dark-muted: #b9c2cf; /* 8.5:1 on --ink-deep */
+
+    /* Surfaces */
+    --surface: #ffffff;
+    --surface-soft: #f7f8fa;
+    --sand: #f1e4cd; /* ivy warmth, secondary surface */
+    --sand-soft: #faf3e7;
+    --mist: #c7d0dc; /* secondary surface + rules */
+    --mist-deep: #7e8b9d; /* step watermark numeral, 3.5:1 on white / 3.1:1 on sand */
+    --ink-on-sand: #4a4335; /* warm ink, 7.8:1 on --sand */
+    --line: #e3e8ee;
+    --line-dark: #38414e;
+    --wash-on-dark: rgb(255 255 255 / 0.06);
+
+    /* Accent — interaction only (links, CTA, active, focus ring) */
+    --accent: #6d4dcd; /* 5.8:1 on white */
+    --accent-press: #5a3cb5; /* 7.7:1 on white */
+    --accent-on-dark: #c9bbf5; /* 8.7:1 on --ink-deep */
+
+    /* Blush — the one narrow text emphasis, dark surfaces only (7.2:1 on --ink-deep).
+       Fails contrast on white, so it must never appear on a light surface. */
+    --blush: #e9a08c;
+
+    /* Type scale, ratio 1.25 from a 1rem base.
+       Ladder: 0.8 / 1 / 1.25 / 1.5625 / 1.953 / 2.441 / 3.052 / 3.815rem.
+       The upper steps are consumed through the fluid values below. */
+    --fs-xs: 0.8rem;
+    --fs-base: 1rem;
+    --fs-md: 1.25rem;
+
+    /* Fluid steps keep a rem term so browser zoom still moves them (WCAG 1.4.4) */
+    --fs-h1: clamp(1.953rem, 1.4rem + 2.8vw, 3.052rem);
+    --fs-h2: clamp(1.5625rem, 1.2rem + 1.8vw, 2.441rem);
+    --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5625rem);
+    --fs-lead: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+    --fs-numeral: clamp(2.441rem, 1.8rem + 3.2vw, 4.768rem);
+
+    /* Spacing — 8px grid */
+    --s-1: 0.5rem;
+    --s-2: 1rem;
+    --s-3: 1.5rem;
+    --s-4: 2rem;
+    --s-5: 3rem;
+    --s-6: 4rem;
+    --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
+    --section-y: clamp(4rem, 3rem + 5vw, 8rem);
+
+    /* Layout */
+    --wrap: 72rem;
+    --measure: 65ch;
+    --header-h: 4rem;
+    --radius: 0.75rem;
+    --radius-lg: 1.5rem;
+
+    /* Ivy sizing. All five source files draw the character at the same pixel
+       scale (content box is ~0.89 of image width in every file), so matching
+       inline-size — not block-size — is what makes the heads read the same.
+       The fluid term carries a viewport-width component as well as a height
+       one, so a wide desktop gets a bigger ivy than a phone of the same
+       height instead of the same 145px everywhere. */
+    --ivy-w: clamp(7rem, 4rem + 9svh + 4vw, 13rem);
+
+    --ring: var(--accent);
+    --shadow-lift: 0 1rem 2.5rem -1.5rem rgb(30 38 49 / 0.45);
+    --shadow-brand: 0 1.25rem 2.5rem -1.25rem rgb(124 58 237 / 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   2. Base
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕",
+        system-ui, sans-serif;
+    font-size: var(--fs-base);
+    font-weight: 400;
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.28;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    max-inline-size: 26ch;
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    letter-spacing: -0.02em;
+}
+
+p {
+    margin: 0;
+    text-wrap: pretty;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-inline-size: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+:where(a, button, summary):focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: var(--s-1);
+}
+
+[id] {
+    scroll-margin-block-start: calc(var(--header-h) + var(--s-2));
+}
+
+main:focus {
+    outline: none;
+}
+
+.skip-link {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.skip-link:focus-visible {
+    inline-size: auto;
+    block-size: auto;
+    margin: var(--s-1);
+    padding: var(--s-1) var(--s-2);
+    overflow: visible;
+    clip-path: none;
+    z-index: 30;
+    border-radius: var(--radius);
+    background: var(--ink-deep);
+    color: var(--on-dark);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Layout primitives
+   -------------------------------------------------------------------------- */
+
+.wrap {
+    inline-size: min(100% - (var(--gutter) * 2), var(--wrap));
+    margin-inline: auto;
+}
+
+.band {
+    padding-block: var(--section-y);
+}
+
+.band--ink {
+    background: var(--ink-deep);
+    color: var(--on-dark);
+    --ring: var(--accent-on-dark);
+}
+
+.band--sand {
+    background: var(--sand-soft);
+}
+
+.prose {
+    max-inline-size: var(--measure);
+    color: var(--ink-muted);
+    font-size: var(--fs-lead);
+    line-height: 1.7;
+}
+
+.band--ink .prose {
+    color: var(--on-dark-muted);
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--s-2);
+    color: var(--ink-muted);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.eyebrow::after {
+    content: "";
+    flex: 1 1 auto;
+    block-size: 1px;
+    background: var(--mist);
+}
+
+.band--ink .eyebrow {
+    color: var(--on-dark-muted);
+}
+
+.band--ink .eyebrow::after {
+    background: var(--line-dark);
+}
+
+.section-head {
+    display: grid;
+    gap: var(--s-2);
+    margin-block-end: var(--s-5);
+}
+
+.contact__grid > .section-head {
+    margin-block-end: 0;
+}
+
+/* The single narrow text emphasis. Dark surfaces only — colour is the only
+   emphasis carried by this span (no extra weight, no size change). */
+.hl {
+    color: var(--blush);
+}
+
+/* --------------------------------------------------------------------------
+   4. Buttons and links
+   -------------------------------------------------------------------------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s-1);
+    min-block-size: 2.75rem;
+    padding: var(--s-1) var(--s-3);
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+}
+
+.btn--primary {
+    background-image: var(--brand-gradient);
+    color: var(--on-dark);
+    box-shadow: var(--shadow-lift);
+}
+
+.btn--ghost {
+    border-color: var(--mist);
+    background: transparent;
+    color: var(--ink);
+}
+
+.band--ink .btn--ghost {
+    border-color: var(--line-dark);
+    color: var(--on-dark);
+}
+
+.btn--sm {
+    padding-inline: var(--s-2);
+    font-size: var(--fs-xs);
+}
+
+@media (hover: hover) {
+    .btn--primary:hover {
+        box-shadow: var(--shadow-brand);
+        transform: translateY(-1px);
+    }
+
+    .btn--ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    .band--ink .btn--ghost:hover {
+        border-color: var(--accent-on-dark);
+        background: var(--wash-on-dark);
+        color: var(--on-dark);
+    }
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+.btn[aria-disabled="true"],
+.btn:disabled {
+    box-shadow: none;
+    background-image: none;
+    background-color: var(--line);
+    color: var(--ink-muted);
+    pointer-events: none;
+}
+
+.link {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition: color 0.18s ease;
+}
+
+.band--ink .link {
+    color: var(--accent-on-dark);
+}
+
+@media (hover: hover) {
+    .link:hover {
+        color: var(--accent-press);
+    }
+
+    .band--ink .link:hover {
+        color: var(--on-dark);
+    }
+}
+
+.link:active {
+    color: var(--accent-press);
+}
+
+.cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+}
+
+/* --------------------------------------------------------------------------
+   5. Site header
+   -------------------------------------------------------------------------- */
+
+.site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 20;
+    background: var(--surface);
+    border-block-end: 1px solid var(--line);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-2);
+    min-block-size: var(--header-h);
+}
+
+.site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    padding-block: var(--s-1);
+}
+
+.site-header__brand img {
+    block-size: 1.75rem;
+    inline-size: auto;
+}
+
+.nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-1);
+    min-block-size: 2.75rem;
+    padding-inline: var(--s-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+    display: block;
+    inline-size: 1rem;
+    block-size: 2px;
+    background: currentColor;
+    border-radius: 2px;
+}
+
+.nav-toggle__bars {
+    position: relative;
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+}
+
+.nav-toggle__bars::before {
+    inset-block-start: -5px;
+}
+
+.nav-toggle__bars::after {
+    inset-block-start: 5px;
+}
+
+@media (hover: hover) {
+    .nav-toggle:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+}
+
+.nav-toggle:active {
+    background: var(--surface-soft);
+}
+
+.site-nav {
+    display: none;
+}
+
+.site-nav[data-open="true"] {
+    display: grid;
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 100%;
+    gap: var(--s-1);
+    padding: var(--s-2) var(--gutter) var(--s-3);
+    background: var(--surface);
+    border-block-end: 1px solid var(--line);
+    box-shadow: var(--shadow-lift);
+}
+
+.site-nav__list {
+    display: grid;
+    gap: var(--s-1);
+}
+
+.site-nav__list a {
+    display: flex;
+    align-items: center;
+    min-block-size: 2.75rem;
+    padding-inline: var(--s-1);
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.18s ease, background-color 0.18s ease;
+}
+
+@media (hover: hover) {
+    .site-nav__list a:hover {
+        color: var(--accent);
+        background: var(--surface-soft);
+    }
+}
+
+.site-nav__list a:active {
+    color: var(--accent-press);
+}
+
+@media (min-width: 64rem) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .site-nav,
+    .site-nav[data-open="true"] {
+        display: flex;
+        position: static;
+        align-items: center;
+        gap: var(--s-3);
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .site-nav__list {
+        grid-auto-flow: column;
+        gap: var(--s-3);
+    }
+
+    .site-nav__list a {
+        min-block-size: 2.5rem;
+        padding-inline: 0;
+        font-size: var(--fs-xs);
+        font-weight: 600;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+    /* The trust row already closes the hero, so it does not need the full band
+       rhythm underneath it as well. */
+    padding-block-end: var(--s-6);
+}
+
+.hero__box {
+    container-type: inline-size;
+    container-name: hero;
+}
+
+.hero__grid {
+    display: grid;
+    gap: var(--s-5);
+    align-items: center;
+}
+
+.hero__body {
+    display: grid;
+    gap: var(--s-3);
+    justify-items: start;
+    min-inline-size: 0;
+}
+
+.hero__logo {
+    inline-size: clamp(11rem, 8rem + 12vw, 18rem);
+    block-size: auto;
+    aspect-ratio: 360 / 92;
+}
+
+.hero__body h1 {
+    max-inline-size: 22ch;
+}
+
+.hero__figure {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    min-inline-size: 0;
+}
+
+.trust {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-3);
+    margin-block-start: var(--s-5);
+    padding-block-start: var(--s-4);
+    border-block-start: 1px solid var(--line-dark);
+}
+
+/* Two tiers per claim: the short label carries it, the line under it explains.
+   Both stay on ink and muted ink — no fill, no gradient. */
+.trust li {
+    display: grid;
+    gap: var(--s-1);
+    padding-inline-start: var(--s-2);
+    border-inline-start: 2px solid var(--line-dark);
+    min-inline-size: 0;
+}
+
+.trust__label {
+    color: var(--on-dark);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.trust__desc {
+    color: var(--on-dark-muted);
+    font-size: var(--fs-xs);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+@container hero (min-width: 30rem) {
+    .trust {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@container hero (min-width: 46rem) {
+    .hero__grid {
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+        gap: var(--s-6);
+    }
+}
+
+@container hero (min-width: 60rem) {
+    .trust {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. What we build
+   -------------------------------------------------------------------------- */
+
+.build__box {
+    container-type: inline-size;
+    container-name: build;
+}
+
+.build__leads {
+    display: grid;
+    gap: var(--s-3);
+}
+
+/* Three lead offers, each on a different surface, so this never reads as one
+   repeated bordered card in a grid. */
+.lead {
+    display: grid;
+    gap: var(--s-2);
+    padding: var(--s-4);
+    border-radius: var(--radius-lg);
+    min-inline-size: 0;
+}
+
+.lead p {
+    color: var(--ink-muted);
+    max-inline-size: var(--measure);
+}
+
+.lead--sand {
+    background: var(--sand);
+}
+
+.lead--sand p {
+    color: var(--ink-on-sand);
+}
+
+.lead--ink {
+    background: var(--ink-deep);
+    color: var(--on-dark);
+    --ring: var(--accent-on-dark);
+}
+
+.lead--ink p {
+    color: var(--on-dark-muted);
+}
+
+.lead--soft {
+    background: var(--surface-soft);
+    border-block-start: 3px solid var(--mist);
+}
+
+/* Secondary offers: hairline rows, deliberately not cards. */
+.rows {
+    margin-block-start: var(--s-5);
+    border-block-start: 1px solid var(--line);
+}
+
+.row {
+    display: grid;
+    gap: var(--s-1);
+    padding-block: var(--s-3);
+    border-block-end: 1px solid var(--line);
+    min-inline-size: 0;
+}
+
+.row h3 {
+    font-size: var(--fs-md);
+    letter-spacing: -0.01em;
+}
+
+.row p {
+    color: var(--ink-muted);
+    max-inline-size: var(--measure);
+}
+
+@container build (min-width: 44rem) {
+    .build__leads {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--s-4);
+    }
+
+    .lead--sand {
+        grid-column: 1 / -1;
+        padding: var(--s-5);
+    }
+
+    .row {
+        grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+        gap: var(--s-4);
+        align-items: baseline;
+    }
+}
+
+/* The lead offer spans the whole grid, so once the card is wider than roughly
+   two measures its body is set as two columns. One measure-capped block in a
+   full-width card left the right half of the card empty. */
+@container build (min-width: 56rem) {
+    .lead--sand {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: var(--s-5);
+        align-items: start;
+    }
+
+    .lead--sand h3 {
+        grid-column: 1 / -1;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. Process — one sticky ivy for the whole section
+   -------------------------------------------------------------------------- */
+
+.process {
+    padding-block: var(--section-y);
+    /* The section reads as one chapter now that the steps are ordinary rows,
+       so the warmth moves from alternating steps to the whole band. */
+    background: var(--sand-soft);
+}
+
+.process__head {
+    margin-block-end: var(--s-5);
+}
+
+.process__box {
+    container-type: inline-size;
+    container-name: process;
+}
+
+/* Narrow: the stage itself sticks, against the block box that holds both it and
+   the step list. It is opaque because the steps scroll underneath it. */
+.process__stage {
+    position: sticky;
+    inset-block-start: var(--header-h);
+    z-index: 1;
+    padding-block: var(--s-1) var(--s-2);
+    margin-block-end: var(--s-3);
+    background: var(--sand-soft);
+    border-block-end: 1px solid var(--mist);
+}
+
+.process__ivy-slot {
+    /* Pinned under the header here, so the ivy is deliberately smaller than the
+       in-flow ivies elsewhere on the page: at the full size the pinned band
+       would eat roughly a third of a phone viewport for the whole section. */
+    --ivy-w: clamp(5.5rem, 3.5rem + 6vw, 8.5rem);
+    display: grid;
+    justify-items: center;
+    align-items: end;
+}
+
+/* All five share one grid cell and stand on a common ground line, so the swap
+   reads as one character changing prop rather than as five images moving. */
+.process__ivy {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Without scripting this is the only ivy that ever shows. */
+.process__ivy--initial {
+    opacity: 1;
+}
+
+/* With scripting, visibility follows the observed step instead. */
+[data-ivy-js="on"] .process__ivy--initial {
+    opacity: 0;
+}
+
+/* The incoming ivy waits for the outgoing one to clear rather than dissolving
+   through it: two different characters overlapping read as a double exposure,
+   and it would put two ivies on screen for the length of the fade. */
+[data-ivy-js="on"] .process__ivy.is-current {
+    opacity: 1;
+    transition: opacity 0.25s ease 0.2s;
+}
+
+.steps {
+    min-inline-size: 0;
+}
+
+.step {
+    display: grid;
+    gap: var(--s-2);
+    align-content: center;
+    /* Enough scroll distance per step for the sticky swap to register, without
+       the viewport-sized steps this section used to carry. Floor, never a cap. */
+    min-block-size: clamp(18rem, 14rem + 12vw, 26rem);
+    padding-block: var(--s-4);
+    border-block-end: 1px solid var(--mist);
+}
+
+.step:last-child {
+    border-block-end: 0;
+}
+
+.step__num {
+    color: var(--mist-deep);
+    font-size: var(--fs-numeral);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.step__body {
+    display: grid;
+    gap: var(--s-2);
+    min-inline-size: 0;
+}
+
+.step__body p {
+    color: var(--ink-muted);
+    font-size: var(--fs-lead);
+    line-height: 1.7;
+    max-inline-size: var(--measure);
+}
+
+@container process (min-width: 52rem) {
+    .process__grid {
+        display: grid;
+        /* Stage column tracks the container, with a rem term so browser zoom
+           still moves it. The ivy is capped below the track, never above it. */
+        grid-template-columns: minmax(0, clamp(13rem, 9rem + 12cqi, 18rem)) minmax(0, 1fr);
+        column-gap: var(--s-6);
+    }
+
+    /* The stage stops sticking and becomes a plain stretched grid item, so it is
+       exactly as tall as the step list; the slot sticks inside it. Sticking the
+       grid item itself lets the ivy outrun its own section in Chrome. */
+    .process__stage {
+        position: static;
+        padding-block: 0;
+        margin-block-end: 0;
+        background: none;
+        border-block-end: 0;
+    }
+
+    .process__ivy-slot {
+        --ivy-w: min(100%, 17rem);
+        position: sticky;
+        inset-block-start: calc(var(--header-h) + var(--s-5));
+    }
+
+    .step {
+        /* Track holds the numeral at its --fs-numeral ceiling with room to
+           spare, so a fallback face cannot push it into the title. */
+        grid-template-columns: minmax(0, 7rem) minmax(0, 1fr);
+        column-gap: var(--s-4);
+        align-items: baseline;
+    }
+}
+
+.ivy {
+    inline-size: var(--ivy-w);
+    block-size: auto;
+}
+
+/* Natural ratios kept per file; matching inline-size keeps the character
+   drawing scale identical across all five. */
+.ivy--clipboard {
+    aspect-ratio: 431 / 607;
+}
+
+.ivy--cursor {
+    aspect-ratio: 408 / 569;
+}
+
+.ivy--checkbox {
+    aspect-ratio: 443 / 725;
+}
+
+.ivy--deskbell {
+    aspect-ratio: 442 / 472;
+}
+
+.ivy--folder {
+    aspect-ratio: 437 / 548;
+}
+
+/* --------------------------------------------------------------------------
+   9. Work
+   -------------------------------------------------------------------------- */
+
+.work {
+    /* Still needed, and recomputed. The process ivy is sticky now, so it can be
+       on screen right up to the bottom of its own section; this band is the
+       whole gap between it and the deskbell ivy below. At 1920x1080 the natural
+       content height plus both band paddings came out 28px short of a viewport,
+       so the floor is raised rather than dropped. vh fallback, then svh. */
+    display: grid;
+    align-content: center;
+    min-block-size: max(84vh, 40rem);
+    min-block-size: max(84svh, 40rem);
+}
+
+.work__box {
+    container-type: inline-size;
+    container-name: work;
+}
+
+.work__grid {
+    display: grid;
+    gap: var(--s-4);
+}
+
+/* The section head already ends on the CTA, so its own trailing margin stacked
+   on top of the grid gap and opened a hole above the list. */
+.work__grid > .section-head {
+    margin-block-end: 0;
+}
+
+.work__list {
+    border-block-start: 1px solid var(--line-dark);
+}
+
+.work__item {
+    display: grid;
+    gap: var(--s-1);
+    padding-block: var(--s-3);
+    border-block-end: 1px solid var(--line-dark);
+    min-inline-size: 0;
+}
+
+.work__tag {
+    color: var(--on-dark-muted);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.work__item p {
+    color: var(--on-dark-muted);
+    max-inline-size: var(--measure);
+}
+
+@container work (min-width: 40rem) {
+    .work__item {
+        grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
+        gap: var(--s-4);
+        align-items: baseline;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. Ivy
+   -------------------------------------------------------------------------- */
+
+.ivy-intro__box {
+    container-type: inline-size;
+    container-name: ivyintro;
+}
+
+.ivy-intro__grid {
+    display: grid;
+    gap: var(--s-4);
+    align-items: center;
+    justify-items: center;
+}
+
+.ivy-intro__body {
+    display: grid;
+    gap: var(--s-2);
+    min-inline-size: 0;
+}
+
+.ivy-intro__body p {
+    color: var(--ink-muted);
+    max-inline-size: var(--measure);
+}
+
+.ivy-intro__figure {
+    margin: 0;
+    min-inline-size: 0;
+}
+
+@container ivyintro (min-width: 40rem) {
+    .ivy-intro__grid {
+        /* Track follows the new --ivy-w ceiling so the larger desktop ivy fits. */
+        grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+        gap: var(--s-6);
+        justify-items: start;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   11. Contact
+   -------------------------------------------------------------------------- */
+
+.contact__grid {
+    display: grid;
+    gap: var(--s-3);
+}
+
+.contact__note {
+    color: var(--ink-muted);
+    font-size: var(--fs-xs);
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+    background: var(--ink-deep);
+    color: var(--on-dark-muted);
+    padding-block: var(--s-6) var(--s-5);
+    --ring: var(--accent-on-dark);
+}
+
+.site-footer__grid {
+    display: grid;
+    gap: var(--s-4);
+}
+
+.site-footer__brand img {
+    block-size: 1.5rem;
+    inline-size: auto;
+}
+
+.site-footer__note {
+    max-inline-size: var(--measure);
+    font-size: var(--fs-xs);
+    line-height: 1.7;
+}
+
+.site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-1) var(--s-3);
+}
+
+.site-footer__links a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.5rem;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--on-dark);
+    text-decoration: none;
+}
+
+@media (hover: hover) {
+    .site-footer__links a:hover {
+        color: var(--accent-on-dark);
+        text-decoration: underline;
+        text-underline-offset: 0.25em;
+    }
+}
+
+.site-footer__links a:active {
+    color: var(--accent-on-dark);
+}
+
+.site-footer__legal {
+    padding-block-start: var(--s-3);
+    border-block-start: 1px solid var(--line-dark);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.04em;
+}
+
+@media (min-width: 48rem) {
+    .site-footer__grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--s-5);
+        align-items: start;
+    }
+
+    .site-footer__legal {
+        grid-column: 1 / -1;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   13. Motion preferences
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .btn:hover,
+    .btn:active {
+        transform: none;
+    }
+
+    /* The duration override above already kills the fade; the hand-off delay
+       has to go too, or the ivy swap leaves a visible gap. */
+    .process__ivy {
+        transition-delay: 0s !important;
+    }
+}

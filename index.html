@@ -3,370 +3,482 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ijoon | 업무 자동화 · 맞춤형 시스템 개발</title>
+        <title>더줌 | 홈페이지 · 자사몰 · 관리자 시스템 · 업무 자동화 제작</title>
         <meta
             name="description"
-            content="아이준(ijoon) 포트폴리오 - 업무 자동화, 맞춤형 시스템 개발, 웹사이트 제작, 랜딩 페이지 제작, 상세 페이지 제작"
+            content="더줌은 홈페이지, 자사몰, 관리자·운영 시스템, 업무 자동화를 만드는 제작 사업체입니다. 20년차 개발자가 기획부터 배포까지 직접 맡고, 세금계산서 발행이 가능합니다."
         />
-        <link rel="stylesheet" href="static/css/common.css" />
-        <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico" />
-        <link rel="icon" type="image/png" href="/static/images/favicon.png" />
+        <meta name="theme-color" content="#1e2631" />
+
+        <link rel="stylesheet" href="static/css/thejoom.css" />
+
+        <link rel="icon" href="/static/images/logo/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/static/images/logo/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/images/logo/favicon-32.png" />
+        <link rel="apple-touch-icon" href="/static/images/logo/apple-touch-icon.png" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "더줌",
+                "alternateName": "thejoom",
+                "url": "https://www.thejoom.net/",
+                "logo": "https://www.thejoom.net/static/images/logo/thejoom-logo.svg",
+                "email": "chrisxp@kakao.com",
+                "areaServed": "KR",
+                "description": "홈페이지, 자사몰, 관리자·운영 시스템, 업무 자동화를 만드는 제작 사업체입니다."
+            }
+        </script>
     </head>
     <body>
-        <nav class="nav">
-            <div class="container nav-inner">
-                <a href="#home" class="brand">theJoom</a>
-                <div class="menu">
-                    <a href="#about">About</a>
-                    <a href="#stack">Tech Stack</a>
-                    <a href="#services">Services</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#featured-link">Landing Page</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-        </nav>
+        <a class="skip-link" href="#main">본문 바로가기</a>
 
-        <header class="hero" id="home">
-            <div class="container hero-wrap">
-                <div class="hero-card">
-                    <div class="eyebrow">20 Years of Experience</div>
-                    <h1>
-                        반복되는 업무,<br />
-                        <span class="accent" style="font-size: 0.85em; font-weight: 600">자동화로 해결해드립니다</span
-                        ><br />
-                        <small class="hero-subtitle">아이준 | ijoon</small>
-                    </h1>
-                    <p>
-                        엑셀 작업, 데이터 수집, 관리 시스템, 웹사이트 제작까지<br />
-                        실무에 바로 도움이 되는 <strong>맞춤형 시스템</strong>을 개발합니다.
-                    </p>
-                    <div class="cta">
-                        <a
-                            href="https://open.kakao.com/o/s3UmTTvi"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style="
-                                padding: 14px 22px;
-                                background: #fee500;
-                                color: #111;
-                                font-weight: 700;
-                                border-radius: 10px;
-                                text-decoration: none;
-                            "
-                        >
-                            카카오 상담
-                        </a>
-                        <a class="btn btn-primary" href="#contact">문의하기</a>
-                        <a class="btn btn-secondary" href="#projects">작업 예시 보기</a>
-                    </div>
-                </div>
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="site-header__brand" href="#top">
+                    <img
+                        src="static/images/logo/thejoom-logo.svg"
+                        alt="더줌 홈으로"
+                        width="360"
+                        height="92"
+                        fetchpriority="high"
+                    />
+                </a>
 
-                <aside class="hero-card profile-box">
-                    <div class="profile-image">
-                        <img
-                            src="static/images/ijoon.circle3.png"
-                            alt="ijoon profile image"
-                            onerror="
-                                this.style.display = 'none';
-                                this.nextElementSibling.style.display = 'block';
-                            "
-                        />
-                    </div>
-                    <ul class="badge-list">
-                        <li class="badge-item">Custom Business Systems</li>
-                        <li class="badge-item">업무 자동화 프로그램</li>
-                        <li class="badge-item">웹사이트 / 쇼핑몰 제작</li>
-                        <li class="badge-item">Database Optimization</li>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                    <span class="nav-toggle__bars" aria-hidden="true"></span>
+                    <span>메뉴</span>
+                </button>
+
+                <nav class="site-nav" id="site-nav" data-open="false" aria-label="주요 메뉴">
+                    <ul class="site-nav__list">
+                        <li><a href="#build">무엇을 만드는가</a></li>
+                        <li><a href="#process">진행 방식</a></li>
+                        <li><a href="#work">작업물</a></li>
+                        <li><a href="#ivy">아이비</a></li>
+                        <li><a href="#contact">문의</a></li>
                     </ul>
-                </aside>
+                    <a class="btn btn--primary btn--sm" href="#contact">상담 문의</a>
+                </nav>
             </div>
         </header>
 
-        <main>
-            <section>
-                <span id="about" class="anchor-target" aria-hidden="true"></span>
-                <div class="container grid-2">
-                    <div class="card">
-                        <div class="section-header">
-                            <div>
-                                <h2>What I Do</h2>
-                                <p>복잡한 업무를 더 쉽고 빠르게 만들 수 있도록 개발합니다.</p>
+        <main id="main" tabindex="-1">
+            <section class="hero band band--ink" id="top">
+                <div class="wrap hero__box">
+                    <div class="hero__grid">
+                        <div class="hero__body">
+                            <img
+                                class="hero__logo"
+                                src="static/images/logo/thejoom-logo.svg"
+                                alt="더줌"
+                                width="360"
+                                height="92"
+                                fetchpriority="high"
+                            />
+                            <h1>손으로 하던 일이 <span class="hl">줄어드는</span> 웹과 자동화를 만듭니다</h1>
+                            <p class="prose">
+                                사업에 필요한 홈페이지와 내부 시스템을 만듭니다. 기획부터 배포까지 20년차 개발자가 직접
+                                맡고, 도메인과 서버 연결까지 끝낸 상태로 넘겨드립니다.
+                            </p>
+                            <div class="cta-row">
+                                <a class="btn btn--primary" href="#contact">상담 문의하기</a>
+                                <a class="btn btn--ghost" href="#work">작업물 보기</a>
                             </div>
                         </div>
-                        <ul class="simple-list">
-                            <li>업무 자동화 프로그램 개발</li>
-                            <li>맞춤형 관리자 시스템 구축</li>
-                            <li>웹사이트 / 쇼핑몰 시스템 개발</li>
-                            <li>데이터 수집 및 처리 자동화</li>
-                            <li>기존 시스템 개선 및 유지보수</li>
+
+                        <figure class="hero__figure">
+                            <img
+                                class="ivy ivy--clipboard"
+                                src="static/images/ivy/clipboard.webp"
+                                alt="클립보드를 든 AI 비서 아이비 — 상담 단계"
+                                width="431"
+                                height="607"
+                                decoding="async"
+                            />
+                        </figure>
+                    </div>
+
+                    <ul class="trust">
+                        <li>
+                            <strong class="trust__label">20년차</strong>
+                            <span class="trust__desc">개발자 직접</span>
+                        </li>
+                        <li>
+                            <strong class="trust__label">사업자등록</strong>
+                            <span class="trust__desc">사업체 · 세금계산서 발행</span>
+                        </li>
+                        <li>
+                            <strong class="trust__label">직접 제작</strong>
+                            <span class="trust__desc">기획부터 배포까지</span>
+                        </li>
+                        <li>
+                            <strong class="trust__label">인계 준비</strong>
+                            <span class="trust__desc">도메인·서버 연결까지</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="band" id="build">
+                <div class="wrap build__box">
+                    <div class="section-head">
+                        <p class="eyebrow">무엇을 만드는가</p>
+                        <h2>만드는 건 웹과 프로그램, 줄어드는 건 손으로 하던 일입니다</h2>
+                        <p class="prose">규모와 예산에 맞춰 필요한 만큼만 잡습니다. 안 해도 되는 건 안 한다고 말합니다.</p>
+                    </div>
+
+                    <div class="build__leads">
+                        <article class="lead lead--sand">
+                            <h3>홈페이지</h3>
+                            <p>회사와 제품을 설명하는 자리에서 끝나지 않게 만듭니다.</p>
+                            <p>검색에 걸리고, 휴대폰에서 읽히고, 문의가 어디로 들어오는지 분명한 상태로 넘겨드립니다.</p>
+                        </article>
+
+                        <article class="lead lead--ink">
+                            <h3>관리자·운영 시스템</h3>
+                            <p>
+                                엑셀과 메신저에 흩어져 있던 주문·재고·고객을 한 화면에서 처리합니다. 누가 언제 무엇을
+                                바꿨는지 남아서, 담당자가 바뀌어도 운영이 끊기지 않습니다.
+                            </p>
+                        </article>
+
+                        <article class="lead lead--soft">
+                            <h3>업무 자동화</h3>
+                            <p>
+                                매일 반복하는 정리와 집계, 발송을 프로그램이 대신합니다. 사람은 결과만 확인하면 됩니다.
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="rows">
+                        <article class="row">
+                            <h3>쇼핑몰·자사몰</h3>
+                            <p>주문부터 정산까지 직접 굴리는 자사몰. 플랫폼 수수료와 정책 변경에 덜 흔들립니다.</p>
+                        </article>
+
+                        <article class="row">
+                            <h3>상세페이지</h3>
+                            <p>제품이 왜 필요한지 순서대로 읽히게 만듭니다. 이미지 용량과 로딩 속도까지 맞춥니다.</p>
+                        </article>
+
+                        <article class="row">
+                            <h3>랜딩페이지</h3>
+                            <p>광고로 들어온 사람이 다른 데로 새지 않고 문의까지 가도록 한 장에 담습니다.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="process" id="process">
+                <div class="wrap process__head">
+                    <div class="section-head">
+                        <p class="eyebrow">진행 방식</p>
+                        <h2>처음 연락부터 넘겨드릴 때까지, 다섯 단계</h2>
+                        <p class="prose">단계마다 무엇을 하고 무엇을 확인하는지 미리 알려 드립니다.</p>
+                    </div>
+                </div>
+
+                <div class="wrap process__box">
+                    <div class="process__grid">
+                        <!-- One sticky slot for the whole section: the five ivies are stacked in
+                             a single grid cell and the observer below fades in the one that matches
+                             the step being read. Without scripting the first stays visible and the
+                             rest stay transparent, so exactly one ivy is ever on screen. -->
+                        <div class="process__stage">
+                            <div class="process__ivy-slot" data-ivy-slot>
+                                <img
+                                    class="ivy process__ivy process__ivy--initial ivy--clipboard"
+                                    src="static/images/ivy/clipboard.webp"
+                                    alt="클립보드를 든 AI 비서 아이비 — 상담·요구 정리 단계"
+                                    width="431"
+                                    height="607"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <img
+                                    class="ivy process__ivy ivy--cursor"
+                                    src="static/images/ivy/cursor.webp"
+                                    alt="커서 모양의 AI 비서 아이비 — 탐색·제안 단계"
+                                    width="408"
+                                    height="569"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <img
+                                    class="ivy process__ivy ivy--checkbox"
+                                    src="static/images/ivy/checkbox.webp"
+                                    alt="체크박스 모양의 AI 비서 아이비 — 제작 진행 단계"
+                                    width="443"
+                                    height="725"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <img
+                                    class="ivy process__ivy ivy--deskbell"
+                                    src="static/images/ivy/deskbell.webp"
+                                    alt="데스크벨 모양의 AI 비서 아이비 — 문의·응답 단계"
+                                    width="442"
+                                    height="472"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                                <img
+                                    class="ivy process__ivy ivy--folder"
+                                    src="static/images/ivy/folder.webp"
+                                    alt="서류를 담은 폴더 모양의 AI 비서 아이비 — 산출물 정리 단계"
+                                    width="437"
+                                    height="548"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </div>
+                        </div>
+
+                        <ol class="steps">
+                            <li class="step" data-step-index="0">
+                                <span class="step__num" aria-hidden="true">01</span>
+                                <div class="step__body">
+                                    <h3>상담·요구 정리</h3>
+                                    <p>지금 어떻게 일하고 계신지부터 듣습니다. 필요한 기능보다 불편한 지점을 먼저 정리합니다.</p>
+                                </div>
+                            </li>
+                            <li class="step" data-step-index="1">
+                                <span class="step__num" aria-hidden="true">02</span>
+                                <div class="step__body">
+                                    <h3>탐색·제안</h3>
+                                    <p>비슷한 사례와 가능한 방법을 찾아 두세 가지로 좁힙니다. 예산과 일정에 맞는 범위를 같이 정합니다.</p>
+                                </div>
+                            </li>
+                            <li class="step" data-step-index="2">
+                                <span class="step__num" aria-hidden="true">03</span>
+                                <div class="step__body">
+                                    <h3>제작 진행</h3>
+                                    <p>정한 범위대로 만들고 중간 화면을 보여드립니다. 보고 나서 바꾸고 싶은 건 그 자리에서 조정합니다.</p>
+                                </div>
+                            </li>
+                            <li class="step" data-step-index="3">
+                                <span class="step__num" aria-hidden="true">04</span>
+                                <div class="step__body">
+                                    <h3>문의·응답</h3>
+                                    <p>작업 중 생기는 질문은 카카오톡으로 주고받습니다. 결정이 필요한 건 선택지를 정리해서 여쭙습니다.</p>
+                                </div>
+                            </li>
+                            <li class="step" data-step-index="4">
+                                <span class="step__num" aria-hidden="true">05</span>
+                                <div class="step__body">
+                                    <h3>산출물 정리</h3>
+                                    <p>도메인과 서버를 연결하고, 접속 정보와 수정 방법을 정리해 넘겨드립니다. 넘긴 뒤에도 막히면 물어보실 수 있습니다.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <section class="work band band--ink" id="work">
+                <div class="wrap work__box">
+                    <div class="work__grid">
+                        <div class="section-head">
+                            <p class="eyebrow">작업물</p>
+                            <h2>만든 화면은 스튜디오에 모아 두고 있습니다</h2>
+                            <p class="prose">
+                                공개 준비 중인 작업이 많아, 정리되는 대로 스튜디오에 올리고 있습니다. 먼저 보고 싶은
+                                종류가 있으면 <a class="link" href="#contact">문의</a>에 적어 주세요.
+                            </p>
+                            <div class="cta-row">
+                                <a
+                                    class="btn btn--primary"
+                                    href="https://studio.thejoom.net/site/thejoom/portfolio"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    작업물 보러 가기
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- TODO: replace the three placeholder rows below with real cases
+                             (client name, the problem, what actually changed) once each client
+                             approves. Do not add client names, figures or dates before then. -->
+                        <ul class="work__list">
+                            <li class="work__item">
+                                <span class="work__tag">공개 준비 중</span>
+                                <p>운영 시스템 — 흩어져 있던 업무를 어떤 화면으로 모았는지 실제 화면과 함께 올립니다.</p>
+                            </li>
+                            <li class="work__item">
+                                <span class="work__tag">공개 준비 중</span>
+                                <p>자사몰 — 주문에서 정산까지의 흐름을 화면 순서대로 보여 드립니다.</p>
+                            </li>
+                            <li class="work__item">
+                                <span class="work__tag">공개 준비 중</span>
+                                <p>업무 자동화 — 사람이 하던 작업과 프로그램이 대신하는 작업을 나눠서 적습니다.</p>
+                            </li>
                         </ul>
                     </div>
+                </div>
+            </section>
 
-                    <div class="card">
-                        <span id="stack" class="anchor-target" aria-hidden="true"></span>
-                        <div class="section-header">
-                            <div>
-                                <h2>Tech Stack</h2>
-                                <p>오랜 기간 다양한 환경에서 안정적으로 개발해온 경험이 있습니다.</p>
-                            </div>
-                        </div>
+            <section class="band" id="ivy">
+                <div class="wrap ivy-intro__box">
+                    <div class="ivy-intro__grid">
+                        <figure class="ivy-intro__figure">
+                            <img
+                                class="ivy ivy--deskbell"
+                                src="static/images/ivy/deskbell.webp"
+                                alt="데스크벨 모양의 AI 비서 아이비 — 문의를 먼저 받는 역할"
+                                width="442"
+                                height="472"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </figure>
 
-                        <div class="stack-group">
-                            <div class="stack-title">Languages</div>
-                            <ul class="stack-list">
-                                <li>Java</li>
-                                <li>C++</li>
-                                <li>C#</li>
-                                <li>PHP</li>
-                                <li>JSP</li>
-                                <li>SQL</li>
-                            </ul>
-                        </div>
-
-                        <div class="stack-group">
-                            <div class="stack-title">Database</div>
-                            <ul class="stack-list">
-                                <li>Oracle</li>
-                                <li>MySQL</li>
-                                <li>MSSQL</li>
-                                <li>Sybase</li>
-                            </ul>
-                        </div>
-
-                        <div class="stack-group">
-                            <div class="stack-title">Environment</div>
-                            <ul class="stack-list">
-                                <li>Linux</li>
-                                <li>Unix</li>
-                                <li>Windows</li>
-                            </ul>
+                        <div class="ivy-intro__body">
+                            <p class="eyebrow">아이비</p>
+                            <h2>문의를 먼저 받는 AI 비서, 아이비</h2>
+                            <p>
+                                아이비는 더줌의 AI 비서 프로그램입니다. 사람 상담원이 아니라, 문의 내용을 먼저 받아
+                                필요한 정보를 정리하는 업무 보조 역할을 합니다.
+                            </p>
+                            <p>정리된 내용은 담당자에게 그대로 전달됩니다. 실제 상담과 제작 판단은 사람이 합니다.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section>
-                <span id="services" class="anchor-target" aria-hidden="true"></span>
-                <div class="container">
-                    <div class="card">
-                        <div class="section-header">
-                            <div>
-                                <h2>Services</h2>
-                                <p>의뢰 형태와 예산에 맞춰 유연하게 대응합니다.</p>
-                            </div>
+            <section class="band band--sand" id="contact">
+                <div class="wrap">
+                    <div class="contact__grid">
+                        <div class="section-head">
+                            <p class="eyebrow">문의</p>
+                            <h2>무엇을 만들지 정하지 않으셔도 괜찮습니다</h2>
+                            <p class="prose">지금 어떤 점이 불편한지부터 알려 주세요. 방법은 같이 찾으면 됩니다.</p>
                         </div>
-                        <ul class="service-list service-list-wide">
-                            <li>업무 자동화 프로그램 개발</li>
-                            <li>맞춤형 프로그램 / 관리자 페이지 개발</li>
-                            <li>웹사이트 / 쇼핑몰 제작</li>
-                            <li>광고용 랜딩 페이지 제작</li>
-                            <li>DB 설계 및 성능 최적화</li>
-                            <li>유지보수 및 기능 개선 지원</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <span id="portfolio" class="anchor-target" aria-hidden="true"></span>
-                <div class="container">
-                    <div class="card section-content-card">
-                        <div class="section-header">
-                            <div>
-                                <h2>Portfolio</h2>
-                                <p>실제 작업 화면을 이미지로 확인할 수 있는 포트폴리오입니다.</p>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-grid">
-                            <article class="portfolio-card">
-                                <div class="portfolio-image">
-                                    <img
-                                        src="static/images/portfolio/00.portfolio.png"
-                                        alt="웹기반 관리자 시스템 화면"
-                                    />
-                                </div>
-                                <div class="portfolio-copy">
-                                    <h3>웹기반 관리자 시스템</h3>
-                                    <p>Web-based Admin System</p>
-                                    <p>사용자, 권한, 데이터 등을 통합 관리할 수 있는 기본 관리자 시스템 화면입니다.</p>
-                                    <a class="portfolio-more" href="portfolio/00.portfolio.html">상세 보기</a>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-card">
-                                <div class="portfolio-image">
-                                    <img src="static/images/portfolio/01.portfolio.png" alt="재고 관리 시스템 화면" />
-                                </div>
-                                <div class="portfolio-copy">
-                                    <h3>재고 관리 시스템</h3>
-                                    <p>Inventory Management System</p>
-                                    <p>상품 등록, 재고 수량, 상태 관리까지 가능한 재고 관리 중심의 운영 화면입니다.</p>
-                                    <a class="portfolio-more" href="portfolio/01.portfolio.html">상세 보기</a>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-card">
-                                <div class="portfolio-image">
-                                    <img src="static/images/portfolio/02.portfolio.png" alt="매출 데이터 분석 화면" />
-                                </div>
-                                <div class="portfolio-copy">
-                                    <h3>매출 데이터 분석 (엑셀 자동화)</h3>
-                                    <p>Sales Analytics Dashboard</p>
-                                    <p>
-                                        엑셀 기반으로 매출 데이터를 정리하고, 차트와 요약으로 한눈에 확인할 수 있는 분석
-                                        화면입니다.
-                                    </p>
-                                    <a class="portfolio-more" href="portfolio/02.portfolio.html">상세 보기</a>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-card">
-                                <div class="portfolio-image">
-                                    <img
-                                        src="static/images/portfolio/03.portfolio.png"
-                                        alt="예약 접수 관리 시스템 화면"
-                                    />
-                                </div>
-                                <div class="portfolio-copy">
-                                    <h3>예약 / 접수 관리 시스템</h3>
-                                    <p>Reservation Management System</p>
-                                    <p>
-                                        예약 및 접수 내역을 관리하고 상태 처리, 상세 확인이 가능한 운영 관리 화면입니다.
-                                    </p>
-                                    <a class="portfolio-more" href="portfolio/03.portfolio.html">상세 보기</a>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <span id="projects" class="anchor-target" aria-hidden="true"></span>
-                <div class="container">
-                    <div class="card section-content-card">
-                        <div class="section-header">
-                            <div>
-                                <h2>Projects</h2>
-                                <p>고객 입장에서 바로 이해할 수 있는 대표 작업 예시입니다.</p>
-                            </div>
-                        </div>
-
-                        <div class="project-list">
-                            <article class="project-card">
-                                <h3>업무 자동화 시스템</h3>
-                                <p>반복되는 수작업을 줄이고 업무 시간을 단축할 수 있는 맞춤형 자동화 프로그램</p>
-                            </article>
-
-                            <article class="project-card">
-                                <h3>데이터 수집 시스템</h3>
-                                <p>원하는 조건으로 데이터를 자동으로 조회·수집·정리할 수 있는 시스템</p>
-                            </article>
-
-                            <article class="project-card">
-                                <h3>관리자 페이지 / 내부 시스템</h3>
-                                <p>복잡한 업무를 한 화면에서 관리할 수 있도록 구성한 맞춤형 관리 시스템</p>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <span id="featured-link" class="anchor-target" aria-hidden="true"></span>
-                <div class="container feature-section-stack">
-                    <article class="card feature-site-card feature-landing-card">
-                        <div class="section-header">
-                            <div>
-                                <h2>광고용 랜딩 페이지 제작</h2>
-                                <p>광고 유입을 위한 메인 랜딩 화면입니다.</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-site-image feature-site-image-large">
-                            <img src="static/images/sample/sample.landing.png" alt="광고용 랜딩페이지 미리보기" />
-                        </div>
-                    </article>
-
-                    <article class="card cms-card">
-                        <div class="section-header">
-                            <div>
-                                <h2>CMS 운영 화면</h2>
-                                <p>프론트와 어드민 화면을 좌우로 배치해 운영 흐름을 한눈에 확인할 수 있습니다.</p>
-                            </div>
-                        </div>
-
-                        <div class="cms-image-grid">
-                            <div class="cms-image-panel">
-                                <div class="feature-site-image cms-image-frame">
-                                    <img
-                                        src="static/images/sample/sample.cms.front.png"
-                                        alt="CMS 프론트 화면 미리보기"
-                                    />
-                                </div>
-                                <div class="feature-site-copy">
-                                    <span class="feature-site-chip">CMS Front</span>
-                                    <p>사용자가 보는 콘텐츠 영역과 정보 구조를 보기 좋게 정리한 화면입니다.</p>
-                                </div>
-                            </div>
-
-                            <div class="cms-image-panel">
-                                <div class="feature-site-image cms-image-frame">
-                                    <img
-                                        src="static/images/sample/sample.cms.admin.png"
-                                        alt="CMS 관리자 화면 미리보기"
-                                    />
-                                </div>
-                                <div class="feature-site-copy">
-                                    <span class="feature-site-chip">CMS Admin</span>
-                                    <p>관리자가 콘텐츠를 등록하고 운영하는 백오피스 화면입니다.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section>
-                <span id="contact" class="anchor-target" aria-hidden="true"></span>
-                <div class="container">
-                    <div class="card contact-card">
-                        <h2>지금 바로 상담 받아보세요</h2>
-                        <p>
-                            프로젝트 문의나 협업이 필요하시면 편하게 연락 주세요.<br />
-                            간단한 상담만으로도 어떤 방식으로 개발하면 좋을지 방향을 함께 정리해드립니다.
-                        </p>
-
-                        <div
-                            style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 20px"
-                        >
+                        <div class="cta-row">
                             <a
+                                class="btn btn--primary"
                                 href="https://open.kakao.com/o/s3UmTTvi"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                style="
-                                    padding: 14px 22px;
-                                    background: #fee500;
-                                    color: #111;
-                                    font-weight: 700;
-                                    border-radius: 10px;
-                                    text-decoration: none;
-                                "
                             >
-                                카카오톡 상담하기
+                                카카오톡으로 문의
                             </a>
-                            <a class="btn btn-primary" href="mailto:chrisxp@kakao.com">chrisxp@kakao.com</a>
+                            <a class="btn btn--ghost" href="mailto:chrisxp@kakao.com">chrisxp@kakao.com</a>
                         </div>
+                        <p class="contact__note">확인하는 대로 답을 드립니다.</p>
                     </div>
                 </div>
             </section>
         </main>
 
-        <footer>
-            <div class="container">Building useful tools for businesses and individuals.</div>
+        <footer class="site-footer">
+            <div class="wrap site-footer__grid">
+                <div>
+                    <a class="site-footer__brand" href="#top">
+                        <img src="static/images/logo/thejoom-logo.svg" alt="더줌" width="360" height="92" />
+                    </a>
+                    <p class="site-footer__note">
+                        사업자등록을 마친 사업체 더줌(thejoom)으로 운영하며, 세금계산서 발행이 가능합니다.
+                    </p>
+                </div>
+
+                <nav class="site-footer__links" aria-label="바닥글 메뉴">
+                    <a href="/blog/">블로그</a>
+                    <a href="https://studio.thejoom.net/site/thejoom/portfolio" target="_blank" rel="noopener noreferrer"
+                        >작업물</a
+                    >
+                    <a href="https://open.kakao.com/o/s3UmTTvi" target="_blank" rel="noopener noreferrer"
+                        >카카오톡 문의</a
+                    >
+                    <a href="mailto:chrisxp@kakao.com">chrisxp@kakao.com</a>
+                </nav>
+
+                <!-- TODO: business registration number / address go here once confirmed -->
+                <p class="site-footer__legal">© 2026 더줌</p>
+            </div>
         </footer>
+
+        <script>
+            // Mobile navigation toggle. Keeps aria-expanded in sync with the panel,
+            // closes on link activation and on Escape. No other behaviour on this page.
+            (function () {
+                var btn = document.querySelector(".nav-toggle");
+                var nav = document.getElementById("site-nav");
+                if (!btn || !nav) return;
+
+                function setOpen(open) {
+                    btn.setAttribute("aria-expanded", String(open));
+                    nav.setAttribute("data-open", String(open));
+                }
+
+                btn.addEventListener("click", function () {
+                    setOpen(btn.getAttribute("aria-expanded") !== "true");
+                });
+
+                nav.addEventListener("click", function (event) {
+                    if (event.target.closest("a")) setOpen(false);
+                });
+
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "Escape") setOpen(false);
+                });
+            })();
+
+            // Process ivy stage. All five ivies live in one sticky slot; an
+            // IntersectionObserver watches a thin band across the middle of the
+            // viewport and marks the step crossing it, so the matching ivy fades
+            // in and the previous one fades out. Only ever one ivy on screen.
+            (function () {
+                var slot = document.querySelector("[data-ivy-slot]");
+                var steps = document.querySelectorAll(".steps .step");
+                if (!slot || !steps.length || !("IntersectionObserver" in window)) return;
+
+                var ivies = slot.querySelectorAll(".process__ivy");
+                if (ivies.length !== steps.length) return;
+
+                function show(index) {
+                    for (var i = 0; i < ivies.length; i++) {
+                        ivies[i].classList.toggle("is-current", i === index);
+                    }
+                }
+
+                var current = 0;
+                var active = [];
+                show(current);
+                // Hands visibility over to .is-current only once the swap works.
+                slot.setAttribute("data-ivy-js", "on");
+
+                var observer = new IntersectionObserver(
+                    function (entries) {
+                        for (var i = 0; i < entries.length; i++) {
+                            var index = Number(entries[i].target.getAttribute("data-step-index"));
+                            var at = active.indexOf(index);
+                            if (entries[i].isIntersecting) {
+                                if (at < 0) active.push(index);
+                            } else if (at >= 0) {
+                                active.splice(at, 1);
+                            }
+                        }
+                        // Between steps, hold the last one rather than blanking out.
+                        if (!active.length) return;
+                        // Two steps can straddle the band; the furthest along wins, so
+                        // the choice does not depend on entry order.
+                        var next = Math.max.apply(null, active);
+                        if (next !== current) {
+                            current = next;
+                            show(current);
+                        }
+                    },
+                    // A band across the upper middle of the viewport, level with the
+                    // sticky ivy. Deep enough that some step always crosses it,
+                    // including the last one at the very end of the section.
+                    { rootMargin: "-15% 0px -55% 0px", threshold: 0 }
+                );
+
+                for (var s = 0; s < steps.length; s++) observer.observe(steps[s]);
+            })();
+        </script>
     </body>
 </html>
