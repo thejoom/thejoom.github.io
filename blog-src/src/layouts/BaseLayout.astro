@@ -34,21 +34,29 @@ const categories = Object.entries(categoryLabels);
   <body>
     <div class="site-shell">
       <header class="site-header">
-        <a class="brand-link" href={`${BLOG_BASE}/`}>thejoom blog</a>
+        <div class="brand-group">
+          <a class="brand-link" href="/" aria-label="thejoom home">
+            <img src="/static/images/logo/thejoom-logo.svg" alt="thejoom" width="360" height="92" />
+          </a>
+          <a class="blog-link" href={`${BLOG_BASE}/`}>&#xBE14;&#xB85C;&#xADF8;</a>
+        </div>
         <nav class="site-nav" aria-label="Blog categories">
           {categories.map(([category, label]) => (
             <a class="nav-link" href={getCategoryUrl(category)}>{label}</a>
           ))}
         </nav>
         <nav class="utility-nav" aria-label="Site links">
-          <a class="nav-link" href="/">Home</a>
+          <a class="home-link" href="/">&#xB354;&#xC90C; &#xD648;</a>
         </nav>
       </header>
       <main>
         <slot />
       </main>
       <footer class="site-footer">
-        <span>© thejoom blog</span>
+        <span class="footer-brand">
+          <img src="/static/images/logo/thejoom-logo.svg" alt="thejoom" width="360" height="92" />
+          <span>© thejoom</span>
+        </span>
         <a href={`${BLOG_BASE}/rss.xml`}>RSS</a>
         <a class="footer-cta" href="/">업무 자동화·시스템 개발 상담</a>
       </footer>
