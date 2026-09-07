@@ -1111,43 +1111,142 @@ main:focus {
 }
 
 /* --------------------------------------------------------------------------
-   10. Ivy
+   10. The subscription — one product, its price, and the two who do the work
    -------------------------------------------------------------------------- */
 
-.ivy-intro__box {
+.plan__box {
     container-type: inline-size;
-    container-name: ivyintro;
+    container-name: plan;
 }
 
-.ivy-intro__grid {
+/* The only priced block on the page, so it is given its own ground instead of
+   another rule-topped list on the band. Sand, not ink: the work band directly
+   above is already ink and a second dark field here would fuse the two. Sand
+   is also the warmth the token set reserves for this character, and it hands
+   the reader on to the sand contact band below. */
+.plan {
     display: grid;
     gap: var(--s-4);
-    align-items: center;
-    justify-items: center;
-}
-
-.ivy-intro__body {
-    display: grid;
-    gap: var(--s-2);
+    padding: var(--s-3);
+    border-radius: var(--radius-lg);
+    background: var(--sand);
+    color: var(--ink-on-sand); /* 7.8:1 on --sand */
     min-inline-size: 0;
 }
 
-.ivy-intro__body p {
-    color: var(--ink-muted);
+.plan__figure {
+    margin: 0;
+    justify-self: center;
+    min-inline-size: 0;
+}
+
+.plan__body {
+    display: grid;
+    gap: var(--s-4);
+    min-inline-size: 0;
+}
+
+/* Badge, name, price — the same three tiers as the two track heads in the
+   section above, so the price arrives on a rank the page has already set. */
+.plan__head {
+    display: grid;
+    gap: var(--s-1);
+    justify-items: start;
+    min-inline-size: 0;
+}
+
+/* The subscription chip: ink on sand up here, ink on white down in the scopes.
+   That is the pairing the two tracks above already use to tell a monthly fee
+   from a one-off one, so the badge stays the page's billing signal and the
+   boundary does not need a colour of its own. */
+.track__badge--ink {
+    background: var(--ink-deep);
+    color: var(--on-dark); /* 15.3:1 on --ink-deep */
+}
+
+/* Size is the only thing lifting the price over the product name: both are 700
+   and both are the slab's warm ink, so neither is emphasised twice. No fill and
+   no gradient — the brand gradient stays on the logo and the call to action. */
+.plan__price {
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    line-height: 1.28;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Hairline rows, no second box. The slab is already a surface; a bordered card
+   in here would be a card inside a card. */
+.plan__roles {
+    min-inline-size: 0;
+}
+
+.role {
+    display: grid;
+    gap: var(--s-1);
+    padding-block: var(--s-3);
+    border-block-start: 1px solid var(--mist);
+    min-inline-size: 0;
+}
+
+.role:last-child {
+    padding-block-end: 0;
+}
+
+/* Which of the two is the program and which is the person. Weight alone tells
+   it from the name — 500 against the h4's 700, same size and same ink — which
+   is the device the step labels already use in the process band. */
+.role__kind {
+    font-weight: 500;
+}
+
+.role p {
     max-inline-size: var(--measure);
 }
 
-.ivy-intro__figure {
-    margin: 0;
+/* Covered by the fee and quoted on its own, at one rank: same head, same row
+   rhythm, same column width. The boundary is not small print under the price. */
+.scopes {
+    display: grid;
+    gap: var(--s-5);
+    margin-block-start: var(--s-5);
     min-inline-size: 0;
 }
 
-@container ivyintro (min-width: 40rem) {
-    .ivy-intro__grid {
-        /* Track follows the new --ivy-w ceiling so the larger desktop ivy fits. */
+.scope {
+    display: grid;
+    gap: var(--s-3);
+    min-inline-size: 0;
+}
+
+.plan__cta {
+    margin-block-start: var(--s-6);
+}
+
+/* One switch for the whole section: the slab takes its figure column and the
+   two scopes come alongside each other at the same width. */
+@container plan (min-width: 44rem) {
+    .plan {
+        /* Track follows the --ivy-w ceiling so the largest desktop ivy fits. */
         grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
-        gap: var(--s-6);
-        justify-items: start;
+        gap: var(--s-5);
+        align-items: center;
+        padding: var(--s-5);
+    }
+
+    .scopes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: var(--s-6);
+    }
+}
+
+/* Wide enough for the two roles to be read as a comparison rather than as two
+   stacked paragraphs: name on one rail, what they do on the next. */
+@container plan (min-width: 64rem) {
+    .role {
+        grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+        column-gap: var(--s-4);
+        align-items: baseline;
     }
 }
 
