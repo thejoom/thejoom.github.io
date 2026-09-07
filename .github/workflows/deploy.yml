@@ -52,6 +52,9 @@ jobs:
           # robots.txt points at sitemap-index.xml, but crawlers and humans probe
           # /sitemap.xml first. Same file, two URLs — no separate copy to maintain.
           cp sitemap-index.xml _site/sitemap.xml
+          # IndexNow key file. Public by design: its presence at the site root is
+          # what proves ownership to Bing / Naver / Yandex. Filename == key == content.
+          cp 3f2fa109b6ba2513ea8f39c2a9718441.txt _site/
           # Search engine ownership verification files (Google / Naver)
           shopt -s nullglob
           for f in google*.html naver*.html; do cp "$f" _site/; done
