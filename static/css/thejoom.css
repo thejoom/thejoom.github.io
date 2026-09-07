@@ -946,11 +946,11 @@ main:focus {
    -------------------------------------------------------------------------- */
 
 .work {
-    /* Still needed, and recomputed. The process ivy is sticky now, so it can be
-       on screen right up to the bottom of its own section; this band is the
-       whole gap between it and the deskbell ivy below. At 1920x1080 the natural
-       content height plus both band paddings came out 28px short of a viewport,
-       so the floor is raised rather than dropped. vh fallback, then svh. */
+    /* The process ivy is sticky, so it can be on screen right up to the bottom
+       of its own section; this band is the whole gap between it and the deskbell
+       ivy below. Nine shots now clear this floor several times over at every
+       width, but it is kept as the guard for the case where the images fail to
+       load and the section collapses back to text. vh fallback, then svh. */
     display: grid;
     align-content: center;
     min-block-size: max(84vh, 40rem);
@@ -973,35 +973,96 @@ main:focus {
     margin-block-end: 0;
 }
 
-.work__list {
+/* Disclosure line. It has to be read before the shots are believed, so it keeps
+   body size and is set apart by a rule rather than shrunk into fine print or
+   boxed up — a box here would read as a fourth card group. */
+.work__note {
+    padding-inline-start: var(--s-2);
+    border-inline-start: 2px solid var(--line-dark);
+    max-inline-size: var(--measure);
+    color: var(--on-dark-muted);
+}
+
+.work__sets {
+    display: grid;
+    gap: var(--s-5);
+}
+
+/* Each category is its own band: a full-bleed rule and a label above its shots.
+   That divider is what carries the rhythm, so the cards themselves need no
+   frame and the run of nine never reads as one undifferentiated grid. */
+.work__set {
+    display: grid;
+    gap: var(--s-3);
+    padding-block-start: var(--s-3);
     border-block-start: 1px solid var(--line-dark);
 }
 
-.work__item {
-    display: grid;
-    gap: var(--s-1);
-    padding-block: var(--s-3);
-    border-block-end: 1px solid var(--line-dark);
-    min-inline-size: 0;
-}
-
-.work__tag {
+/* Same label treatment the retired work tags used: the step down from --fs-h3
+   is deliberate, since this names a group of shots rather than titling one. */
+.work__set-title {
     color: var(--on-dark-muted);
     font-size: var(--fs-xs);
     font-weight: 700;
     letter-spacing: 0.12em;
 }
 
-.work__item p {
+.work__cards {
+    display: grid;
+    gap: var(--s-4);
+}
+
+.work-card {
+    display: grid;
+    gap: var(--s-2);
+    min-inline-size: 0;
+}
+
+/* The screenshot is the card. Text sits straight on the band, so there is no
+   box inside a box; the hairline is only there to hold the rounded corner and
+   to keep the dark-hero shots from bleeding into the ink band.
+   Cards are not links — no hover affordance, because nothing happens on click.
+   The one way out of this section is the CTA at the bottom. */
+.work-card__shot {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 720 / 450;
+    border: 1px solid var(--line-dark);
+    border-radius: var(--radius);
+    background: var(--wash-on-dark);
+}
+
+.work-card__body {
+    display: grid;
+    gap: var(--s-1);
+    min-inline-size: 0;
+}
+
+/* Weight carries the label, colour carries the line: one emphasis each. */
+.work-card__type {
+    font-weight: 700;
+}
+
+.work-card__line {
     color: var(--on-dark-muted);
-    max-inline-size: var(--measure);
 }
 
 @container work (min-width: 40rem) {
-    .work__item {
-        grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
-        gap: var(--s-4);
-        align-items: baseline;
+    .work__cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* A lone shot stretched across the full row would upscale a 720px source.
+       Laid on its side it stays under its native width and gives the run of
+       nine a break instead of a fifth identical pair. */
+    .work__cards--single {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .work-card--wide {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        column-gap: var(--s-4);
+        align-items: center;
     }
 }
 
