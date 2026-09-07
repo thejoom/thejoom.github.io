@@ -64,10 +64,10 @@
     --fs-h2: clamp(1.5625rem, 1.2rem + 1.8vw, 2.441rem);
     --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5625rem);
     --fs-lead: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
-    /* Step index label. One rung under --fs-h3 at both ends of its range, so it
-       reads as a caption beside the title instead of a display figure competing
-       with it. */
-    --fs-numeral: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+    /* Step index label. Locked to --fs-h3 so the figure and the step title sit
+       on the same size rank at every width; the label is set apart from the
+       title by weight alone (500 against 700), never by a second size step. */
+    --fs-numeral: var(--fs-h3);
 
     /* Spacing — 8px grid */
     --s-1: 0.5rem;
@@ -831,6 +831,16 @@ main:focus {
     /* The section reads as one chapter now that the steps are ordinary rows,
        so the warmth moves from alternating steps to the whole band. */
     background: var(--sand-soft);
+    /* Warm ink for the whole band. The page-wide greys are blue-based, and over
+       sand that mismatch is what read as "flat" — nothing here is desaturated,
+       it is the wrong temperature. Rank inside the band is carried by size and
+       weight, so one ink is enough. 8.9:1 on --sand-soft. */
+    color: var(--ink-on-sand);
+}
+
+.process .eyebrow,
+.process .prose {
+    color: var(--ink-on-sand);
 }
 
 .process__head {
@@ -849,13 +859,20 @@ main:focus {
        them: all five files draw the character at the same pixel scale, so one
        common inline-size makes the heads read the same even though the natural
        ratios run from 0.61 to 0.94. */
-    --ivy-w: clamp(3rem, 2.25rem + 2cqi, 3.75rem);
+    --ivy-w: clamp(3rem, 2.5rem + 5cqi, 6.25rem);
+    /* The marker plate, stated once here rather than left to each image. Width
+       is a declared grid track, so the icon column cannot drift with whichever
+       source file happens to be widest. The 1.65 block factor clears the
+       tallest of the five ratios (443/725 = 0.611) and --s-2 is the 8px inset
+       that surrounds it, which is what makes all five plates identical. */
+    --mark-w: calc(var(--ivy-w) + var(--s-2));
+    --mark-h: calc(var(--ivy-w) * 1.65 + var(--s-2));
     min-inline-size: 0;
 }
 
 .step {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: var(--mark-w) minmax(0, 1fr);
     column-gap: var(--s-2);
     row-gap: var(--s-1);
     align-content: center;
@@ -864,7 +881,10 @@ main:focus {
        tallest step's own height, so four lines of text no longer sit in a box
        twice their size. */
     min-block-size: clamp(11rem, 9rem + 4vw, 13rem);
-    padding-block: var(--s-3);
+    /* The plate now carries the row's visual padding, so the row's own padding
+       comes down a step. That keeps the row height where the previous pass put
+       it while the marker inside it grows by two thirds. */
+    padding-block: var(--s-2);
     border-block-end: 1px solid var(--mist);
 }
 
@@ -872,14 +892,17 @@ main:focus {
     border-block-end: 0;
 }
 
-/* An index label, not a display numeral: same tracked-and-muted treatment as
-   .eyebrow, so the step list carries one title rank rather than two. */
+/* The label now matches the title's size and ink, so weight is the only thing
+   separating them — 500 against the h3's 700. Same line-height and tracking as
+   the title as well, which is what puts the two on one optical line rather than
+   merely on one baseline. Tabular figures keep 01–05 the same width, so the
+   title's left edge does not shift down the list. */
 .step__num {
-    color: var(--ink-muted);
     font-size: var(--fs-numeral);
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.28;
-    letter-spacing: 0.08em;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
 }
 
 .step__body {
@@ -888,38 +911,50 @@ main:focus {
     min-inline-size: 0;
 }
 
+/* Colour is inherited from the band so the step copy keeps the section's warm
+   ink; size and weight already separate it from the title. */
 .step__body p {
-    color: var(--ink-muted);
     font-size: var(--fs-lead);
     line-height: 1.7;
     max-inline-size: var(--measure);
 }
 
-/* Narrow: the marker holds its own column beside the whole step, so the title
-   keeps the width it had before the image arrived and never wraps around it.
-   Centred rather than sat on the title baseline — the five natural ratios span
-   1.07 to 1.64, so bottom-aligning them would leave the tallest step visibly
-   deeper than the other four and break the even row rhythm. */
-.step__ivy {
+/* The marker plate. It is the section's colour as much as it is the icon's
+   frame: one sand rectangle per step, identical in all five rows because its
+   size comes from --mark-w/--mark-h and not from the character inside it. That
+   is also what lets the character grow — the plate absorbs the ratio spread
+   (1.07 to 1.64) that used to make the icon column wobble.
+   Narrow: the plate holds its own column beside the whole step, centred against
+   the label and the copy stacked to its right. */
+.step__mark {
     grid-column: 1;
     grid-row: 1 / span 2;
     align-self: center;
+    display: grid;
+    place-items: center;
+    inline-size: var(--mark-w);
+    block-size: var(--mark-h);
+    padding: var(--s-1);
+    border-radius: var(--radius-lg);
+    background: var(--sand);
 }
 
 @container process (min-width: 52rem) {
     .step {
-        /* Marker, then a track that holds the two-digit label at its
-           --fs-numeral ceiling with room to spare, so a fallback face cannot
-           push it into the title. */
-        grid-template-columns: auto minmax(0, 2.5rem) minmax(0, 1fr);
+        /* Plate, then a track that holds the two-digit label at its raised
+           --fs-numeral ceiling; min-content is the floor, so a fallback face
+           widens the track instead of pushing into the title. */
+        grid-template-columns: var(--mark-w) minmax(min-content, 3rem) minmax(0, 1fr);
         column-gap: var(--s-3);
         align-items: baseline;
     }
 
-    /* One row now: the label and the title share a baseline, the marker keeps
-       its own centring against them. */
-    .step__ivy {
+    /* One row now, and the plate is taller than the copy beside it, so it starts
+       with the label and the title rather than centring against them: plate top,
+       numeral and title all share one rail across the five steps. */
+    .step__mark {
         grid-row: 1;
+        align-self: start;
     }
 }
 
