@@ -48,6 +48,10 @@ jobs:
           cp robots.txt _site/
           cp sitemap-index.xml _site/
           cp sitemap-root.xml _site/
+          # Also serve the index at the conventional /sitemap.xml path.
+          # robots.txt points at sitemap-index.xml, but crawlers and humans probe
+          # /sitemap.xml first. Same file, two URLs — no separate copy to maintain.
+          cp sitemap-index.xml _site/sitemap.xml
           # Search engine ownership verification files (Google / Naver)
           shopt -s nullglob
           for f in google*.html naver*.html; do cp "$f" _site/; done
