@@ -17,6 +17,9 @@ export const getPublishedPosts = async () => {
   return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 };
 
+export const getPublishedCategories = (posts: Awaited<ReturnType<typeof getPublishedPosts>>) =>
+  [...new Set(posts.map((post) => post.data.category))];
+
 export const getPostUrl = (slug: string) => `${BLOG_BASE}/${slug}/`;
 
 export const getCategoryUrl = (category: string) => `${BLOG_BASE}/category/${category}/`;

@@ -1,5 +1,5 @@
 ---
-import { BLOG_BASE, categoryLabels, getCanonicalUrl, getCategoryUrl } from '../lib/blog';
+import { BLOG_BASE, categoryLabels, getCanonicalUrl, getCategoryUrl, getPublishedCategories, getPublishedPosts } from '../lib/blog';
 import '../styles/blog.css';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 const { title, description, canonicalPath = `${BLOG_BASE}/` } = Astro.props;
 const canonical = getCanonicalUrl(canonicalPath);
-const categories = Object.entries(categoryLabels);
+const categories = getPublishedCategories(await getPublishedPosts());
 ---
 
 <!doctype html>
@@ -41,8 +41,8 @@ const categories = Object.entries(categoryLabels);
           <a class="blog-link" href={`${BLOG_BASE}/`}>&#xBE14;&#xB85C;&#xADF8;</a>
         </div>
         <nav class="site-nav" aria-label="Blog categories">
-          {categories.map(([category, label]) => (
-            <a class="nav-link" href={getCategoryUrl(category)}>{label}</a>
+          {categories.map((category) => (
+            <a class="nav-link" href={getCategoryUrl(category)}>{categoryLabels[category]}</a>
           ))}
         </nav>
         <nav class="utility-nav" aria-label="Site links">
