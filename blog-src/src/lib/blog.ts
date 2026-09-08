@@ -8,6 +8,7 @@ export const categoryLabels = {
   devlog: 'Devlog',
   lessons: 'Lessons',
   notes: 'Notes',
+  guide: '\uC790\uB8CC',
 } as const;
 
 export type Category = keyof typeof categoryLabels;
