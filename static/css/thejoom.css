@@ -76,7 +76,7 @@
     --s-5: 3rem;
     --s-6: 4rem;
     --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
-    --section-y: clamp(4rem, 3rem + 5vw, 8rem);
+    --section-y: clamp(3rem, 2.5rem + 3vw, 5.5rem);
 
     /* Layout */
     --wrap: 72rem;
@@ -739,9 +739,27 @@ main:focus {
     color: var(--ink-muted);
 }
 
-/* Track A — built once. Six cells that carry a rule instead of a frame, so the
-   grid reads as an index rather than as the same bordered card six times. */
-.offers {
+/* One shared card surface keeps the subscription scope and both build tracks
+   in the same visual language. */
+.scope,
+.offer,
+.duty {
+    padding: var(--s-3);
+    border: 1px solid var(--mist);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+}
+
+.offer h4,
+.duty h4,
+.scope h3,
+.role h4,
+.step h3 {
+    color: var(--ink-deep);
+}
+
+.offers,
+.duties {
     display: grid;
     gap: var(--s-4);
     min-inline-size: 0;
@@ -750,8 +768,6 @@ main:focus {
 .offer {
     display: grid;
     gap: var(--s-1);
-    padding-block-start: var(--s-2);
-    border-block-start: 2px solid var(--mist);
     min-inline-size: 0;
 }
 
@@ -760,92 +776,51 @@ main:focus {
     max-inline-size: var(--measure);
 }
 
-/* Track B — kept running monthly. Its badge carries the ground its list sits
-   on, so the two billing labels are told apart before either list is read. */
+/* The monthly badge, rather than a contrasting card style, distinguishes the
+   ongoing track from the one-off work. */
 .track--run .track__badge {
     background: var(--ink-deep);
     color: var(--on-dark);
 }
 
-/* Its own ink ground and its own rhythm: rows on a hairline, not cells in a
-   grid, so the twelve categories never collapse into one twelve-cell field.
-   The head stays outside the slab, on track A's left edge, so the two heads
-   read as one comparison instead of two indents. */
-.duties {
-    padding: var(--s-3);
-    border-radius: var(--radius-lg);
-    background: var(--ink-deep);
-    color: var(--on-dark);
-    --ring: var(--accent-on-dark);
-    min-inline-size: 0;
-}
-
 .duty {
     display: grid;
     gap: var(--s-1);
-    padding-block: var(--s-3);
-    border-block-end: 1px solid var(--line-dark);
     min-inline-size: 0;
 }
 
-.duty:first-child {
-    padding-block-start: 0;
-}
-
-.duty:last-child {
-    padding-block-end: 0;
-    border-block-end: 0;
-}
-
 .duty p {
-    color: var(--on-dark-muted);
+    color: var(--ink-muted);
     max-inline-size: var(--measure);
 }
 
 /* Experience text conveys the meaning of the title colour. */
 .duty--proven h4 {
-    color: var(--blush); /* 7.2:1 on --ink-deep */
+    color: var(--ink);
 }
 
 .duty__experience {
     display: block;
     margin-block-start: var(--s-1);
-    color: var(--on-dark-muted);
+    color: var(--ink-muted);
     font-size: var(--fs-xs);
-}
-
-.build__cta {
-    margin-block-start: var(--s-6);
 }
 
 /* Six items, so the column count divides them evenly at every step; an
    auto-fit track would leave a two-cell orphan row on a wide desktop. */
 @container build (min-width: 34rem) {
-    .offers {
+    .offers,
+    .duties {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@container build (min-width: 44rem) {
-    .duties {
-        padding: var(--s-4);
-    }
-
-    .duty {
-        grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
-        gap: var(--s-4);
-        align-items: baseline;
-    }
-}
-
 @container build (min-width: 56rem) {
-    .offers {
+    .offers,
+    .duties {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .duties {
-        padding: var(--s-5);
-    }
 }
 
 /* --------------------------------------------------------------------------
@@ -885,7 +860,7 @@ main:focus {
        them: all five files draw the character at the same pixel scale, so one
        common inline-size makes the heads read the same even though the natural
        ratios run from 0.61 to 0.94. */
-    --ivy-w: clamp(3rem, 2.5rem + 5cqi, 6.25rem);
+    --ivy-w: clamp(4rem, 3rem + 6cqi, 7rem);
     /* The marker plate, stated once here rather than left to each image. Width
        is a declared grid track, so the icon column cannot drift with whichever
        source file happens to be widest. The 1.65 block factor clears the
@@ -906,7 +881,7 @@ main:focus {
        section used to carry. Floor, never a cap. Kept a little above the
        tallest step's own height, so four lines of text no longer sit in a box
        twice their size. */
-    min-block-size: clamp(11rem, 9rem + 4vw, 13rem);
+    min-block-size: clamp(10rem, 8rem + 4vw, 12rem);
     /* The plate now carries the row's visual padding, so the row's own padding
        comes down a step. That keeps the row height where the previous pass put
        it while the marker inside it grows by two thirds. */
@@ -1246,18 +1221,11 @@ main:focus {
     display: grid;
     gap: var(--s-3);
     align-content: start;
-    padding: var(--s-3);
-    border-radius: var(--radius-lg);
-    background: var(--sand-soft);
     min-inline-size: 0;
 }
 
-.scope + .scope {
-    background: var(--surface-soft);
-}
-
-.plan__cta {
-    margin-block-start: var(--s-6);
+.plan__price-cta {
+    margin-block-start: var(--s-2);
 }
 
 /* One switch for the whole section: the slab takes its figure column and the
