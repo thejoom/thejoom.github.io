@@ -4,9 +4,31 @@ import { BLOG_BASE, categoryLabels, formatDate, getCanonicalUrl } from '../lib/b
 
 const { post } = Astro.props;
 const canonicalPath = `${BLOG_BASE}/${post.slug}/`;
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  keywords: post.data.tags,
+  mainEntityOfPage: getCanonicalUrl(canonicalPath),
+  author: {
+    '@type': 'Organization',
+    name: '더줌',
+    url: 'https://www.thejoom.net/',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: '더줌',
+    url: 'https://www.thejoom.net/',
+  },
+  image: 'https://www.thejoom.net/static/images/logo/og-cover.png',
+};
 ---
 
 <BaseLayout title={`${post.data.title} | thejoom blog`} description={post.data.description} canonicalPath={canonicalPath}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <article class="post">
     <header class="post-header">
       <p class="meta">

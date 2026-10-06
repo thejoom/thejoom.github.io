@@ -1,0 +1,311 @@
+- generic [active] [ref=f2e1]:
+  - link "본문 바로가기" [ref=f2e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f2e3]:
+    - generic [ref=f2e4]:
+      - link [ref=f2e5] [cursor=pointer]:
+        - /url: "#top"
+        - img "더줌 홈으로" [ref=f2e6]
+      - navigation "주요 메뉴" [ref=f2e7]:
+        - list [ref=f2e8]:
+          - listitem [ref=f2e9]:
+            - link "월 구독" [ref=f2e10] [cursor=pointer]:
+              - /url: "#ivy"
+          - listitem [ref=f2e11]:
+            - link "무엇을 만드는가" [ref=f2e12] [cursor=pointer]:
+              - /url: "#build"
+          - listitem [ref=f2e13]:
+            - link "진행 방식" [ref=f2e14] [cursor=pointer]:
+              - /url: "#process"
+          - listitem [ref=f2e15]:
+            - link "작업물" [ref=f2e16] [cursor=pointer]:
+              - /url: "#work"
+          - listitem [ref=f2e17]:
+            - link "문의" [ref=f2e18] [cursor=pointer]:
+              - /url: "#contact"
+        - link "상담 문의" [ref=f2e19] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=f2e20]:
+    - generic [ref=f2e22]:
+      - generic [ref=f2e23]:
+        - generic [ref=f2e24]:
+          - img "더줌" [ref=f2e25]
+          - heading "매달 쌓이는 일을 월 5만원에 함께 처리합니다" [level=1] [ref=f2e26]
+          - paragraph [ref=f2e27]: AI 비서 아이비가 문의와 반복 업무를 먼저 정리하고 20년차 담당자가 처리합니다. 새 홈페이지와 내부 시스템이 필요할 때는 기획부터 배포까지 직접 만들어 드립니다.
+          - generic [ref=f2e28]:
+            - link "월 구독 알아보기" [ref=f2e29] [cursor=pointer]:
+              - /url: "#ivy"
+            - link "작업물 보기" [ref=f2e30] [cursor=pointer]:
+              - /url: "#work"
+        - figure [ref=f2e31]:
+          - img "클립보드를 든 AI 비서 아이비 — 상담 단계" [ref=f2e32]
+      - list [ref=f2e33]:
+        - listitem [ref=f2e34]:
+          - strong [ref=f2e35]: 20년차
+          - generic [ref=f2e36]: 개발자 직접
+        - listitem [ref=f2e37]:
+          - strong [ref=f2e38]: 사업자등록
+          - generic [ref=f2e39]: 사업체 · 세금계산서 발행
+        - listitem [ref=f2e40]:
+          - strong [ref=f2e41]: 직접 제작
+          - generic [ref=f2e42]: 기획부터 배포까지
+        - listitem [ref=f2e43]:
+          - strong [ref=f2e44]: 인계 준비
+          - generic [ref=f2e45]: 도메인·서버 연결까지
+    - generic [ref=f2e47]:
+      - generic [ref=f2e48]:
+        - paragraph [ref=f2e49]: 월 구독 상품
+        - heading "월 5만원, AI 비서와 담당자가 함께 붙습니다" [level=2] [ref=f2e50]
+        - paragraph [ref=f2e51]: 아이비는 더줌의 AI 비서 프로그램입니다. 문의와 요청을 먼저 받아 정리하고, 정리된 일은 담당자 아이준이 직접 처리합니다.
+      - region [ref=f2e52]:
+        - figure [ref=f2e53]:
+          - img "데스크벨 모양의 AI 비서 아이비 — 문의를 먼저 받는 역할" [ref=f2e54]
+        - generic [ref=f2e55]:
+          - generic [ref=f2e56]:
+            - paragraph [ref=f2e57]: 월 구독
+            - heading "AI 비서 + 담당자 구독" [level=3] [ref=f2e58]
+            - paragraph [ref=f2e59]: 월 5만원
+          - list [ref=f2e60]:
+            - listitem [ref=f2e61]:
+              - heading "AI 비서 아이비" [level=4] [ref=f2e62]
+              - paragraph [ref=f2e63]: 문의와 요청을 먼저 받아 내용을 정리하고, 빠진 것이 없는지 확인합니다. 사람 상담원이 아니라 프로그램입니다.
+            - listitem [ref=f2e64]:
+              - heading "담당자 아이준" [level=4] [ref=f2e65]
+              - paragraph [ref=f2e66]: 정리된 요청을 실제로 처리하는 20년차 개발자입니다. 무엇을 어디까지 할지는 사람이 판단합니다.
+      - generic [ref=f2e67]:
+        - region [ref=f2e68]:
+          - generic [ref=f2e69]:
+            - paragraph [ref=f2e70]: 포함
+            - heading "반복되는 일상 업무" [level=3] [ref=f2e73]
+            - paragraph [ref=f2e74]: 월 5만원 안에서 처리합니다. 처리할 분량과 빈도는 협의합니다.
+          - list [ref=f2e75]:
+            - listitem [ref=f2e76]:
+              - heading "문의 응대" [level=4] [ref=f2e77]
+              - paragraph [ref=f2e78]: 들어온 문의를 아이비가 먼저 받아 정리합니다
+            - listitem [ref=f2e79]:
+              - heading "반복 업무 대행" [level=4] [ref=f2e80]
+              - paragraph [ref=f2e81]: 등록·정리·업데이트처럼 매번 손이 가던 일
+            - listitem [ref=f2e82]:
+              - heading "자료 정리" [level=4] [ref=f2e83]
+              - paragraph [ref=f2e84]: 흩어진 파일과 표를 쓸 수 있는 형태로
+            - listitem [ref=f2e85]:
+              - heading "사이트 유지보수·수정" [level=4] [ref=f2e86]
+              - paragraph [ref=f2e87]: 문구·이미지·공지 교체를 요청하시면 됩니다
+        - region [ref=f2e88]:
+          - generic [ref=f2e89]:
+            - paragraph [ref=f2e90]: 별도
+            - heading "새로 만드는 일은 따로" [level=3] [ref=f2e93]
+            - paragraph [ref=f2e94]: 비용은 범위를 보고 먼저 알려 드립니다
+          - list [ref=f2e95]:
+            - listitem [ref=f2e96]:
+              - heading "새 프로그램 제작" [level=4] [ref=f2e97]
+              - paragraph [ref=f2e98]: 지금 없는 기능을 새로 만드는 일
+            - listitem [ref=f2e99]:
+              - heading "신규 구축" [level=4] [ref=f2e100]
+              - paragraph [ref=f2e101]: 홈페이지·자사몰·관리자 시스템을 처음부터
+            - listitem [ref=f2e102]:
+              - heading "대규모 개편·이관" [level=4] [ref=f2e103]
+              - paragraph [ref=f2e104]: 범위가 큰 작업은 건별로 따로 잡습니다
+            - listitem [ref=f2e105]:
+              - heading "시스템 연동" [level=4] [ref=f2e106]
+              - paragraph [ref=f2e107]: 사이트 ↔ 시트 ↔ 쇼핑몰 ↔ 사내 시스템을 API로 잇기
+      - link "상담 문의하기" [ref=f2e109] [cursor=pointer]:
+        - /url: "#contact"
+    - generic [ref=f2e111]:
+      - generic [ref=f2e112]:
+        - paragraph [ref=f2e113]: 무엇을 만드는가
+        - heading "만드는 건 웹과 프로그램, 줄어드는 건 손으로 하던 일입니다" [level=2] [ref=f2e114]
+        - paragraph [ref=f2e115]: 규모와 예산에 맞춰 필요한 만큼만 잡습니다. 안 해도 되는 건 안 한다고 말합니다.
+      - generic [ref=f2e116]:
+        - region [ref=f2e117]:
+          - generic [ref=f2e118]:
+            - paragraph [ref=f2e119]: 일시불
+            - heading "만들어 드립니다" [level=3] [ref=f2e120]
+            - paragraph [ref=f2e121]: 업무 자동화 · 구축
+          - list [ref=f2e122]:
+            - listitem [ref=f2e123]:
+              - heading "엑셀 반복 작업 자동화" [level=4] [ref=f2e124]
+              - paragraph [ref=f2e125]: 흩어진 파일을 모아 정리하고 보고서까지 자동으로
+            - listitem [ref=f2e126]:
+              - heading "데이터 수집 자동화" [level=4] [ref=f2e127]
+              - paragraph [ref=f2e128]: 가격·재고·공고를 원하는 조건으로 모아 시트나 DB에 쌓기
+            - listitem [ref=f2e129]:
+              - heading "문서 자동 발행" [level=4] [ref=f2e130]
+              - paragraph [ref=f2e131]: 견적서·명세서·거래명세를 양식에 채워 PDF·메일로
+            - listitem [ref=f2e132]:
+              - heading "알림 자동화" [level=4] [ref=f2e133]
+              - paragraph [ref=f2e134]: 미납·재고·마감을 메일·문자·카톡으로 때맞춰
+            - listitem [ref=f2e135]:
+              - heading "시스템 연동" [level=4] [ref=f2e136]
+              - paragraph [ref=f2e137]: 사이트 ↔ 시트 ↔ 쇼핑몰 ↔ 사내 시스템을 API로 잇기
+            - listitem [ref=f2e138]:
+              - heading "관리자·운영 화면" [level=4] [ref=f2e139]
+              - paragraph [ref=f2e140]: 예약·주문·회원을 한 화면에서 처리하는 백오피스
+        - region [ref=f2e141]:
+          - generic [ref=f2e142]:
+            - paragraph [ref=f2e143]: 월 구독
+            - heading "대신 처리해 드립니다" [level=3] [ref=f2e144]
+            - paragraph [ref=f2e145]: 운영 대행
+          - list [ref=f2e146]:
+            - listitem [ref=f2e147]:
+              - heading "상품 등록 대행" [level=4] [ref=f2e148]
+              - paragraph [ref=f2e149]: 스마트스토어·쿠팡에 대량 등록하고 수정까지
+            - listitem [ref=f2e150]:
+              - heading "쇼핑몰 이관 진행 경험 있음" [level=4] [ref=f2e151]:
+                - text: 쇼핑몰 이관
+                - generic [ref=f2e152]: 진행 경험 있음
+              - paragraph [ref=f2e153]: 스마트스토어에서 카페24 자사몰로 옮기고 열리게 만들기
+            - listitem [ref=f2e154]:
+              - heading "상세페이지 제작·교체" [level=4] [ref=f2e155]
+              - paragraph [ref=f2e156]: 시즌마다 갈아끼우는 일까지 맡아서
+            - listitem [ref=f2e157]:
+              - heading "사이트 유지보수" [level=4] [ref=f2e158]
+              - paragraph [ref=f2e159]: 문구·이미지·공지 업데이트를 요청만 하면
+            - listitem [ref=f2e160]:
+              - heading "검색 노출 관리" [level=4] [ref=f2e161]
+              - paragraph [ref=f2e162]: 구글·네이버 색인, 구조화 데이터, 순위 추적
+            - listitem [ref=f2e163]:
+              - heading "AI 응대 비서 세팅 진행 경험 있음" [level=4] [ref=f2e164]:
+                - text: AI 응대 비서 세팅
+                - generic [ref=f2e165]: 진행 경험 있음
+              - paragraph [ref=f2e166]: 문의를 먼저 받아 정리하는 비서를 고객사 채널에
+      - link "상담 문의하기" [ref=f2e168] [cursor=pointer]:
+        - /url: "#contact"
+    - generic [ref=f2e169]:
+      - generic [ref=f2e171]:
+        - paragraph [ref=f2e172]: 진행 방식
+        - heading "처음 연락부터 넘겨드릴 때까지, 다섯 단계" [level=2] [ref=f2e173]
+        - paragraph [ref=f2e174]: 단계마다 무엇을 하고 무엇을 확인하는지 미리 알려 드립니다.
+      - list [ref=f2e176]:
+        - listitem [ref=f2e177]:
+          - generic [aria-hidden] [ref=f2e179]: "01"
+          - generic [ref=f2e180]:
+            - heading "상담·요구 정리" [level=3] [ref=f2e181]
+            - paragraph [ref=f2e182]: 지금 어떻게 일하고 계신지부터 듣습니다. 필요한 기능보다 불편한 지점을 먼저 정리합니다.
+        - listitem [ref=f2e183]:
+          - generic [aria-hidden] [ref=f2e185]: "02"
+          - generic [ref=f2e186]:
+            - heading "탐색·제안" [level=3] [ref=f2e187]
+            - paragraph [ref=f2e188]: 비슷한 사례와 가능한 방법을 찾아 두세 가지로 좁힙니다. 예산과 일정에 맞는 범위를 같이 정합니다.
+        - listitem [ref=f2e189]:
+          - generic [aria-hidden] [ref=f2e191]: "03"
+          - generic [ref=f2e192]:
+            - heading "제작 진행" [level=3] [ref=f2e193]
+            - paragraph [ref=f2e194]: 정한 범위대로 만들고 중간 화면을 보여드립니다. 변경할 내용은 함께 확인하고 범위와 일정을 조정합니다.
+        - listitem [ref=f2e195]:
+          - generic [aria-hidden] [ref=f2e197]: "04"
+          - generic [ref=f2e198]:
+            - heading "문의·응답" [level=3] [ref=f2e199]
+            - paragraph [ref=f2e200]: 작업 중 생기는 질문은 카카오톡으로 주고받습니다. 결정이 필요한 건 선택지를 정리해서 여쭙습니다.
+        - listitem [ref=f2e201]:
+          - generic [aria-hidden] [ref=f2e203]: "05"
+          - generic [ref=f2e204]:
+            - heading "산출물 정리" [level=3] [ref=f2e205]
+            - paragraph [ref=f2e206]: 도메인과 서버를 연결하고, 접속 정보와 수정 방법을 정리해 넘겨드립니다. 넘긴 뒤에도 막히면 물어보실 수 있습니다.
+    - generic [ref=f2e209]:
+      - generic [ref=f2e210]:
+        - paragraph [ref=f2e211]: 작업물
+        - heading "말로 설명하기 전에, 만든 화면부터 보여 드립니다" [level=2] [ref=f2e212]
+        - paragraph [ref=f2e213]:
+          - text: 유형별로 어떤 화면을 어떤 순서로 짜는지 모았습니다. 여기 없는 종류가 필요하면
+          - link "문의" [ref=f2e214] [cursor=pointer]:
+            - /url: "#contact"
+          - text: 에 적어 주세요.
+      - paragraph [ref=f2e215]: 실제 의뢰 건과 자체 제작 샘플이 함께 있습니다. 고객사명은 동의를 받은 뒤에 공개합니다.
+      - generic [ref=f2e216]:
+        - generic [ref=f2e217]:
+          - heading "상세페이지" [level=3] [ref=f2e218]
+          - list [ref=f2e219]:
+            - listitem [ref=f2e220]:
+              - img "자체 제작 샘플 — 뷰티 상세페이지 시안 — 왼쪽에 제품 소개 문구, 오른쪽에 용량·사용 시점·텍스처·향을 정리한 정보 표" [ref=f2e221]
+              - generic [ref=f2e222]:
+                - paragraph [ref=f2e223]: 뷰티 상세페이지
+                - paragraph [ref=f2e224]: 자체 제작 샘플
+                - paragraph [ref=f2e225]: 성분을 늘어놓기 전에, 언제 쓰는 제품인지부터 잡았습니다.
+            - listitem [ref=f2e226]:
+              - img "자체 제작 샘플 — 식품 상세페이지 시안 — 조리 방식을 설명한 문구 옆에 중량·구성·조리 시간·보관 방법을 적은 표" [ref=f2e227]
+              - generic [ref=f2e228]:
+                - paragraph [ref=f2e229]: 식품 상세페이지
+                - paragraph [ref=f2e230]: 자체 제작 샘플
+                - paragraph [ref=f2e231]: 눈으로 판단하기 어려운 품목은 확인할 수 있는 근거부터 세웁니다.
+        - generic [ref=f2e232]:
+          - heading "홈페이지·랜딩" [level=3] [ref=f2e233]
+          - list [ref=f2e234]:
+            - listitem [ref=f2e235]:
+              - img "자체 제작 샘플 — 의원 홈페이지 시안 — 짙은 남색 첫 화면에 예약 버튼 두 개, 아래에 예약 우선·상담·야간 진료·주차 안내가 한 줄로 배치" [ref=f2e236]
+              - generic [ref=f2e237]:
+                - paragraph [ref=f2e238]: 의원·클리닉 홈페이지
+                - paragraph [ref=f2e239]: 자체 제작 샘플
+                - paragraph [ref=f2e240]: 진료 안내를 늘어놓기 전에 예약으로 가는 길부터 냅니다.
+            - listitem [ref=f2e241]:
+              - img "자체 제작 샘플 — 카페 홈페이지 시안 — 크림색 바탕에 세리프 제목과 커피잔 이미지, 아래에 영업·휴무 시간 줄" [ref=f2e242]
+              - generic [ref=f2e243]:
+                - paragraph [ref=f2e244]: 카페·매장 홈페이지
+                - paragraph [ref=f2e245]: 자체 제작 샘플
+                - paragraph [ref=f2e246]: 사진이 아직 없어도 되는 구조. 여백과 서체로 분위기를 만듭니다.
+            - listitem [ref=f2e247]:
+              - img "자체 제작 샘플 — 설명회 랜딩페이지 시안 — 남색 바탕에 노란색으로 강조한 제목, 일정 카드와 신청 버튼이 첫 화면에 배치" [ref=f2e248]
+              - generic [ref=f2e249]:
+                - paragraph [ref=f2e250]: 설명회 랜딩페이지
+                - paragraph [ref=f2e251]: 자체 제작 샘플
+                - paragraph [ref=f2e252]: 신청 하나로 좁힌 구성. 일정과 정원을 위에 두고 설명은 뒤로 뺐습니다.
+            - listitem [ref=f2e253]:
+              - img "실제 의뢰 — 설계·컨설팅 홈페이지 — 흰 바탕에 도면 일러스트, 상담 신청 버튼과 사례 보기 링크" [ref=f2e254]
+              - generic [ref=f2e255]:
+                - paragraph [ref=f2e256]: 설계·컨설팅 홈페이지
+                - paragraph [ref=f2e257]: 실제 의뢰
+                - paragraph [ref=f2e258]: PC와 모바일을 같은 흐름으로 짰습니다.
+        - generic [ref=f2e259]:
+          - heading "쇼핑몰·자사몰" [level=3] [ref=f2e260]
+          - list [ref=f2e261]:
+            - listitem [ref=f2e262]:
+              - img "자체 제작 샘플 — 자사몰 메인 화면 — 상단 검색창과 카테고리 탭, 기획전 배너 옆에 마감·첫 주문 안내, 아래에 상품 목록" [ref=f2e263]
+              - generic [ref=f2e264]:
+                - paragraph [ref=f2e265]: 자사몰
+                - paragraph [ref=f2e266]: 자체 제작 샘플
+                - paragraph [ref=f2e267]: 주문에서 정산까지. 결제까지 붙일 수 있는 형태입니다.
+        - generic [ref=f2e268]:
+          - heading "관리자·운영 시스템" [level=3] [ref=f2e269]
+          - list [ref=f2e270]:
+            - listitem [ref=f2e271]:
+              - img "실제 의뢰 — 관리자 화면 — 왼쪽 메뉴와 사용자 목록 표, 계정마다 권한과 승인·보류 상태를 표시" [ref=f2e272]
+              - generic [ref=f2e273]:
+                - paragraph [ref=f2e274]: 관리자 — 사용자·권한
+                - paragraph [ref=f2e275]: 실제 의뢰
+                - paragraph [ref=f2e276]: 회원과 권한을 나누고 관리자 계정을 따로 둡니다.
+            - listitem [ref=f2e277]:
+              - img "실제 의뢰 — 관리자 매출 화면 — 기간을 고르는 필터와 월별 매출 표, 오른쪽에 분류별 집계와 원형 차트" [ref=f2e278]
+              - generic [ref=f2e279]:
+                - paragraph [ref=f2e280]: 관리자 — 매출 집계
+                - paragraph [ref=f2e281]: 실제 의뢰
+                - paragraph [ref=f2e282]: 기간별 집계와 차트를 한 화면에서 봅니다.
+      - link "작업물 전체 보기" [ref=f2e284] [cursor=pointer]:
+        - /url: /portfolio/
+    - generic [ref=f2e287]:
+      - generic [ref=f2e288]:
+        - paragraph [ref=f2e289]: 문의
+        - heading "무엇을 만들지 정하지 않으셔도 괜찮습니다" [level=2] [ref=f2e290]
+        - paragraph [ref=f2e291]: 지금 어떤 점이 불편한지부터 알려 주세요. 방법은 같이 찾으면 됩니다.
+      - generic [ref=f2e292]:
+        - link "카카오톡으로 문의" [ref=f2e293] [cursor=pointer]:
+          - /url: https://open.kakao.com/o/s3UmTTvi
+        - link "chrisxp@kakao.com" [ref=f2e294] [cursor=pointer]:
+          - /url: mailto:chrisxp@kakao.com
+      - paragraph [ref=f2e295]: 확인하는 대로 답을 드립니다.
+  - contentinfo [ref=f2e296]:
+    - generic [ref=f2e297]:
+      - generic [ref=f2e298]:
+        - link [ref=f2e299] [cursor=pointer]:
+          - /url: "#top"
+          - img "더줌" [ref=f2e300]
+        - paragraph [ref=f2e301]: 사업자등록을 마친 사업체 더줌(thejoom)으로 운영하며, 세금계산서 발행이 가능합니다.
+      - navigation "바닥글 메뉴" [ref=f2e302]:
+        - link "블로그" [ref=f2e303] [cursor=pointer]:
+          - /url: /blog/
+        - link "작업물" [ref=f2e304] [cursor=pointer]:
+          - /url: /portfolio/
+        - link "카카오톡 문의" [ref=f2e305] [cursor=pointer]:
+          - /url: https://open.kakao.com/o/s3UmTTvi
+        - link "chrisxp@kakao.com" [ref=f2e306] [cursor=pointer]:
+          - /url: mailto:chrisxp@kakao.com
+      - paragraph [ref=f2e307]: © 2026 더줌
