@@ -4,3 +4,5 @@ blog-src/.astro/
 _site/
 tmp/
 /blog/
+.agents/logs/
+.agents/dispatch-archive/
