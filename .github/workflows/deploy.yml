@@ -60,6 +60,9 @@ jobs:
           for f in google*.html naver*.html; do cp "$f" _site/; done
           shopt -u nullglob
           cp -R help _site/
+          cp -R hospital-homepage _site/
+          cp -R access-control _site/
+          cp -R visitor-management _site/
           cp -R portfolio _site/
           cp -R static _site/
           cp -R blog-src/dist/. _site/blog/
