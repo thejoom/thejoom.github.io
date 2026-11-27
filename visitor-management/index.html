@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>방문자관리시스템 — 방문 예약·접수·기록 | 더줌</title>
+        <link rel="canonical" href="https://www.thejoom.net/visitor-management/" />
+        <meta
+            name="description"
+            content="방문자관리시스템 구축. 방문 사전 예약, 현장 접수, 담당자 알림, 방문 기록 조회. 종이 방문 대장을 화면으로."
+        />
+        <meta
+            name="keywords"
+            content="방문자관리시스템, 방문자 접수, 방문 예약, 방문 기록 관리"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="더줌" />
+        <meta property="og:locale" content="ko_KR" />
+        <meta property="og:url" content="https://www.thejoom.net/visitor-management/" />
+        <meta property="og:title" content="방문자관리시스템 — 방문 예약·접수·기록 | 더줌" />
+        <meta property="og:description" content="방문자관리시스템 구축. 방문 사전 예약, 현장 접수, 담당자 알림, 방문 기록 조회. 종이 방문 대장을 화면으로." />
+        <meta property="og:image" content="https://www.thejoom.net/static/images/logo/og-cover.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="더줌 — 만들고, 확인하고, 찾아오게 만듭니다" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="방문자관리시스템 — 방문 예약·접수·기록 | 더줌" />
+        <meta name="twitter:description" content="방문자관리시스템 구축. 방문 사전 예약, 현장 접수, 담당자 알림, 방문 기록 조회. 종이 방문 대장을 화면으로." />
+        <meta name="twitter:image" content="https://www.thejoom.net/static/images/logo/og-cover.png" />
+        <meta name="theme-color" content="#1e2631" />
+
+        <link rel="stylesheet" href="/static/css/thejoom.css" />
+
+        <link rel="icon" href="/static/images/logo/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="/static/images/logo/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/images/logo/favicon-32.png" />
+        <link rel="apple-touch-icon" href="/static/images/logo/apple-touch-icon.png" />
+
+    </head>
+    <body>
+        <a class="skip-link" href="#main">본문 바로가기</a>
+
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="site-header__brand" href="/">
+                    <img
+                        src="/static/images/logo/thejoom-logo.svg"
+                        alt="더줌 홈으로"
+                        width="360"
+                        height="92"
+                        fetchpriority="high"
+                    />
+                </a>
+
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+                    <span class="nav-toggle__bars" aria-hidden="true"></span>
+                    <span>메뉴</span>
+                </button>
+
+                <nav class="site-nav" id="site-nav" data-open="false" aria-label="주요 메뉴">
+                    <ul class="site-nav__list">
+                        <li><a href="/#ivy">월 구독</a></li>
+                        <li><a href="/#build">무엇을 만드는가</a></li>
+                        <li><a href="/#process">진행 방식</a></li>
+                        <li><a href="/#care">검증·광고</a></li>
+                        <li><a href="/#work">작업물</a></li>
+                        <li><a href="/#contact">문의</a></li>
+                    </ul>
+                    <a class="btn btn--primary btn--sm" href="#contact">상담 문의</a>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main" tabindex="-1">
+            <section class="band" id="top">
+                <div class="wrap build__box">
+                    <div class="section-head">
+                        <p class="eyebrow">더줌</p>
+                        <h1>방문자관리시스템</h1>
+                        <p class="prose">종이 방문 대장을 예약·접수·기록 화면으로</p>
+                    </div>
+                    <div class="cta-row">
+                        <a class="btn btn--primary" href="https://open.kakao.com/o/s3UmTTvi" target="_blank" rel="noopener noreferrer">카카오톡으로 상담하기</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="band band--sand" id="features">
+                <div class="wrap build__box">
+                    <div class="section-head">
+                        <p class="eyebrow">할 수 있는 일</p>
+                        <h2>방문자관리시스템에서 할 수 있는 일</h2>
+                    </div>
+                    <ul class="offers">
+                            <li class="offer">
+                                <h3>방문 사전 예약</h3>
+                                <p>방문자가 미리 일정을 등록</p>
+                            </li>
+                            <li class="offer">
+                                <h3>현장 접수</h3>
+                                <p>도착한 방문자를 화면에서 바로 접수</p>
+                            </li>
+                            <li class="offer">
+                                <h3>담당자 알림</h3>
+                                <p>접수되면 담당자에게 알림</p>
+                            </li>
+                            <li class="offer">
+                                <h3>방문 기록 조회·내려받기</h3>
+                                <p>지난 방문 기록 검색, 엑셀 저장</p>
+                            </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="band" id="example">
+                <div class="wrap build__box">
+                    <div class="section-head">
+                        <p class="eyebrow">화면 예시</p>
+                        <h2>비슷한 화면은 이렇게 구성합니다</h2>
+                    </div>
+                    <img class="work-card__shot" src="/static/images/portfolio/03.portfolio.png" alt="예약·접수 관리 화면 예시" loading="lazy" />
+                </div>
+            </section>
+
+            <section class="band band--sand" id="process">
+                <div class="wrap build__box">
+                    <div class="section-head">
+                        <p class="eyebrow">진행 순서</p>
+                        <h2>상담부터 배포까지</h2>
+                    </div>
+                    <ul class="offers">
+                            <li class="offer">
+                                <h3>1단계</h3>
+                                <p>상담: 지금 쓰는 방식과 필요한 기능 확인</p>
+                            </li>
+                            <li class="offer">
+                                <h3>2단계</h3>
+                                <p>범위 확인: 만들 화면과 기능 정리</p>
+                            </li>
+                            <li class="offer">
+                                <h3>3단계</h3>
+                                <p>제작: 화면 확인하며 진행</p>
+                            </li>
+                            <li class="offer">
+                                <h3>4단계</h3>
+                                <p>배포·인계: 실제 주소에 올리고 사용법 안내</p>
+                            </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="band" id="contact">
+                <div class="wrap">
+                    <div class="contact__grid">
+                        <div class="section-head">
+                            <p class="eyebrow">문의</p>
+                            <h2>방문자관리시스템 상담</h2>
+                        </div>
+                        <div class="cta-row">
+                            <a class="btn btn--primary" href="https://open.kakao.com/o/s3UmTTvi" target="_blank" rel="noopener noreferrer">카카오톡으로 상담하기</a>
+                        </div>
+                        <p class="contact__note">상호(또는 성함)·연락처·사이트 주소를 먼저 남겨 주시면 확인 결과를 정리해 드립니다.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="wrap site-footer__grid">
+                <div>
+                    <a class="site-footer__brand" href="/">
+                        <img src="/static/images/logo/thejoom-logo-ink.svg" alt="더줌" width="360" height="92" />
+                    </a>
+                    <p class="site-footer__note">
+                        사업자등록을 마친 사업체 더줌(thejoom)으로 운영하며, 세금계산서 발행이 가능합니다.
+                    </p>
+                </div>
+
+                <nav class="site-footer__links" aria-label="바닥글 메뉴">
+                    <a href="/blog/">블로그</a>
+                    <a href="/portfolio/">작업물</a
+                    >
+                    <a href="https://open.kakao.com/o/s3UmTTvi" target="_blank" rel="noopener noreferrer"
+                        >카카오톡 문의</a
+                    >
+                    <a href="mailto:chrisxp@kakao.com">chrisxp@kakao.com</a>
+                </nav>
+
+                <!-- TODO: business registration number / address go here once confirmed -->
+                <p class="site-footer__legal">© 2026 더줌</p>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile navigation toggle. Keeps aria-expanded in sync with the panel,
+            // closes on link activation and on Escape. No other behaviour on this page.
+            (function () {
+                var btn = document.querySelector(".nav-toggle");
+                var nav = document.getElementById("site-nav");
+                if (!btn || !nav) return;
+
+                function setOpen(open) {
+                    btn.setAttribute("aria-expanded", String(open));
+                    nav.setAttribute("data-open", String(open));
+                }
+
+                btn.addEventListener("click", function () {
+                    setOpen(btn.getAttribute("aria-expanded") !== "true");
+                });
+
+                nav.addEventListener("click", function (event) {
+                    if (event.target.closest("a")) setOpen(false);
+                });
+
+                document.addEventListener("keydown", function (event) {
+                    if (event.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+                        var focusWasInNav = nav.contains(document.activeElement);
+                        setOpen(false);
+                        if (focusWasInNav) btn.focus();
+                    }
+                });
+            })();
+        </script>
+    </body>
+</html>
